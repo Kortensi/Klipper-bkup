@@ -1,0 +1,1426 @@
+--------------------Moonraker Log Start--------------------
+data_path: /home/pi/Ender5_data
+is_default_data_path: False
+config_file: /home/pi/Ender5_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+log_file: /home/pi/Ender5_data/logs/moonraker.log
+software_version: v0.7.1-876-g87dba2f
+python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7126
+klippy_uds_address = /home/pi/Ender5_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+	*://Ender5
+	*://Ender5.local
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+refresh_interval = 168
+
+[update_manager mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager KlippyScreenAndroid]
+type = git_repo
+path = ~/KlipperScreen
+origin = https://github.com/jordanruthe/KlipperScreen.git
+env = ~/.KlipperScreen-env/bin/python
+requirements = scripts/KlipperScreen-requirements.txt
+install_script = scripts/KlipperScreen-install.sh
+
+[update_manager moonraker-telegram-bot]
+type = git_repo
+path = ~/moonraker-telegram-bot
+origin = https://github.com/nlef/moonraker-telegram-bot.git
+env = ~/moonraker-telegram-bot-env/bin/python
+requirements = scripts/requirements.txt
+install_script = scripts/install.sh
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+install_script = tools/install.sh
+
+[power light_strip]
+type = gpio
+pin = gpiochip0/gpio16
+initial_state = off
+
+[power Heater]
+type = gpio
+pin = gpiochip0/gpio12
+initial_state = off
+
+[power Cooling_Fan]
+type = gpio
+pin = gpiochip0/gpio05
+initial_state = off
+
+#################################################################
+All Configuration Files:
+/home/pi/Ender5_data/config/moonraker.conf
+#################################################################
+Unsafe Shutdown Count: 8
+
+System Info:
+
+***python***
+  version: sys.version_info(major=3, minor=9, micro=2, releaselevel='final', serial=0)
+  version_string: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 32bit
+  processor: armv7l
+  cpu_desc: ARMv7 Processor rev 3 (v7l)
+  serial_number: 100000004453ee49
+  hardware_desc: BCM2711
+  model: Raspberry Pi 4 Model B Rev 1.4
+  total_memory: 3748192
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 6f
+  manufacturer: Unknown
+  oem_id: 0303
+  product_name: CBADS
+  product_revision: 1.0
+  serial_number: aa0005c6
+  manufacturer_date: 10/2022
+  capacity: 29.1 GiB
+  total_bytes: 31275876352
+
+***distribution***
+  name: Raspbian GNU/Linux 11 (bullseye)
+  id: raspbian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: debian
+  codename: bullseye
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+libgpiod version: 1.6.2
+
+Systemd unit moonraker-Ender5.service:
+unit_name: moonraker-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', '-.mount', 'sysinit.target', 'network-online.target']
+**After=['system.slice', 'systemd-journald.socket', '-.mount', 'basic.target', 'sysinit.target', 'network-online.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/moonraker.env
+**ExecStart=/home/pi/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/pi/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-Ender5.service
+**Description=API Server for Klipper SV1 Ender5
+**User=pi
+
+Systemd unit klipper-Ender5.service:
+unit_name: klipper-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', '-.mount', 'sysinit.target']
+**After=['sysinit.target', 'system.slice', 'network-online.target', 'systemd-journald.socket', '-.mount', 'basic.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/klipper.env
+**ExecStart=/home/pi/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/pi/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender5.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=pi
+Klipper Version: v0.11.0-110-gaca0c71a
+2023-02-15 03:01:14,377 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2023-02-15 03:04:04,610 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2023-02-15 03:04:14,602 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2023-02-15 03:04:24,597 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2023-02-15 07:29:19,875 [websockets.py:on_close()] - Websocket Closed: ID: 3051762136 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.40
+2023-02-15 07:29:20,351 [websockets.py:on_close()] - Websocket Closed: ID: 2822996848 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.10
+2023-02-15 07:29:20,362 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2023-02-15 07:29:20,364 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 5.30ms
+2023-02-15 07:29:20,365 [websockets.py:open()] - Websocket Opened: ID: 2802790016, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 07:29:20,373 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 07:42:58,365 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.04ms
+2023-02-15 07:42:58,366 [websockets.py:open()] - Websocket Opened: ID: 2802770296, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 07:42:58,371 [websockets.py:_handle_identify()] - Websocket 2802770296 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 07:46:02,296 [websockets.py:on_close()] - Websocket Closed: ID: 2802770296 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.93
+2023-02-15 07:46:02,658 [websockets.py:on_close()] - Websocket Closed: ID: 2802790016 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.27
+2023-02-15 07:46:02,671 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.59ms
+2023-02-15 07:46:02,672 [websockets.py:open()] - Websocket Opened: ID: 2802786416, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 07:46:02,688 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 08:08:52,204 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 08:08:52,204 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Stop Block 23_5x4.gcode" -u "/tmp/moonraker.upload-49890.mru") successfully finished
+2023-02-15 08:08:52,215 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 633.03ms
+2023-02-15 08:29:04,122 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.77ms
+2023-02-15 08:29:04,122 [websockets.py:open()] - Websocket Opened: ID: 2792242432, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 08:29:04,199 [websockets.py:_handle_identify()] - Websocket 2792242432 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 08:29:24,090 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 08:29:24,091 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Corner Top C Primo.gcode" -u "/tmp/moonraker.upload-51122.mru") successfully finished
+2023-02-15 08:29:24,104 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 994.60ms
+2023-02-15 08:30:53,635 [job_state.py:_status_update()] - Job Started: Corner Top C Primo.gcode
+2023-02-15 08:32:27,369 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.32
+2023-02-15 08:32:27,371 [app.py:log_request()] - 101 GET /websocket (192.168.1.32) [_TRUSTED_USER_] 3.26ms
+2023-02-15 08:32:27,371 [websockets.py:open()] - Websocket Opened: ID: 2802837464, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 08:32:27,412 [websockets.py:_handle_identify()] - Websocket 2802837464 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 08:32:34,162 [websockets.py:write_to_socket()] - Websocket closed while writing: 2792242432
+2023-02-15 08:32:37,676 [websockets.py:on_close()] - Websocket Closed: ID: 2802786416 Close Code: None, Close Reason: None, Pong Time Elapsed: 35.00
+2023-02-15 08:32:37,677 [websockets.py:write_to_socket()] - Websocket closed while writing: 2802786416
+2023-02-15 08:32:39,126 [websockets.py:on_close()] - Websocket Closed: ID: 2792242432 Close Code: None, Close Reason: None, Pong Time Elapsed: 35.00
+2023-02-15 08:34:32,442 [websockets.py:on_close()] - Websocket Closed: ID: 2802837464 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.07
+2023-02-15 09:32:07,036 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2023-02-15 09:37:07,037 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.32
+2023-02-15 10:33:22,072 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2023-02-15 10:33:22,075 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.94ms
+2023-02-15 10:33:22,076 [websockets.py:open()] - Websocket Opened: ID: 2802303304, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:33:22,082 [websockets.py:_handle_identify()] - Websocket 2802303304 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 10:33:34,078 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.29ms
+2023-02-15 10:33:34,079 [websockets.py:open()] - Websocket Opened: ID: 2792170232, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:33:34,103 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 10:33:37,710 [websockets.py:on_close()] - Websocket Closed: ID: 2802303304 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.63
+2023-02-15 10:33:38,005 [websockets.py:on_close()] - Websocket Closed: ID: 2792170232 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.93
+2023-02-15 10:33:38,017 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.53ms
+2023-02-15 10:33:38,018 [websockets.py:open()] - Websocket Opened: ID: 2802156712, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:33:38,030 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 10:33:45,299 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.67ms
+2023-02-15 10:33:45,300 [websockets.py:open()] - Websocket Opened: ID: 2802824936, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:33:45,305 [websockets.py:_handle_identify()] - Websocket 2802824936 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 10:36:07,726 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 10:36:07,727 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Corner Top C Primo Mirrored.gcode" -u "/tmp/moonraker.upload-58726.mru") successfully finished
+2023-02-15 10:36:07,737 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 825.06ms
+2023-02-15 10:36:12,787 [websockets.py:on_close()] - Websocket Closed: ID: 2802824936 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.49
+2023-02-15 10:36:13,358 [websockets.py:on_close()] - Websocket Closed: ID: 2802156712 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.33
+2023-02-15 10:36:13,374 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.53ms
+2023-02-15 10:36:13,374 [websockets.py:open()] - Websocket Opened: ID: 2802811424, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:36:13,408 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 10:38:33,344 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.88ms
+2023-02-15 10:38:33,344 [websockets.py:open()] - Websocket Opened: ID: 2802303712, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:38:33,351 [websockets.py:_handle_identify()] - Websocket 2802303712 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 10:40:26,171 [websockets.py:on_close()] - Websocket Closed: ID: 2802303712 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.82
+2023-02-15 10:40:26,507 [websockets.py:on_close()] - Websocket Closed: ID: 2802811424 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.13
+2023-02-15 10:40:26,515 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.54ms
+2023-02-15 10:40:26,515 [websockets.py:open()] - Websocket Opened: ID: 2802304792, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 10:40:26,523 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 11:30:48,569 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.54ms
+2023-02-15 11:30:48,569 [websockets.py:open()] - Websocket Opened: ID: 2802783544, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 11:30:48,582 [websockets.py:_handle_identify()] - Websocket 2802783544 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 11:41:53,183 [websockets.py:on_close()] - Websocket Closed: ID: 2802783544 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.61
+2023-02-15 11:41:53,512 [websockets.py:on_close()] - Websocket Closed: ID: 2802304792 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.99
+2023-02-15 11:41:53,523 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.60ms
+2023-02-15 11:41:53,524 [websockets.py:open()] - Websocket Opened: ID: 2802082240, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 11:41:53,539 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 11:44:17,726 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:44:17,726 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Truck C Primo.gcode" -u "/tmp/moonraker.upload-62816.mru") successfully finished
+2023-02-15 11:44:17,738 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 809.17ms
+2023-02-15 11:44:50,301 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:44:50,302 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Truck C Primo Mirrored.gcode" -u "/tmp/moonraker.upload-62848.mru") successfully finished
+2023-02-15 11:44:50,327 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 889.68ms
+2023-02-15 11:46:25,949 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:46:25,949 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Z Motor C Primo.gcode" -u "/tmp/moonraker.upload-62944.mru") successfully finished
+2023-02-15 11:46:25,960 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 517.49ms
+2023-02-15 11:46:47,134 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:46:47,134 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Z Coupler C Primo.gcode" -u "/tmp/moonraker.upload-62965.mru") successfully finished
+2023-02-15 11:46:47,145 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 637.66ms
+2023-02-15 11:49:12,840 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:49:12,840 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Core Z Clamp 1 C.gcode" -u "/tmp/moonraker.upload-63111.mru") successfully finished
+2023-02-15 11:49:12,849 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 426.20ms
+2023-02-15 11:49:52,487 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:49:52,488 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Core Clamp C Primo.gcode" -u "/tmp/moonraker.upload-63151.mru") successfully finished
+2023-02-15 11:49:52,498 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 631.57ms
+2023-02-15 11:50:43,090 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:50:43,090 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Core Clamp C Y Primo.gcode" -u "/tmp/moonraker.upload-63201.mru") successfully finished
+2023-02-15 11:50:43,100 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 455.02ms
+2023-02-15 11:51:38,157 [shell_command.py:run_with_response()] - /home/pi/moonraker-env/bin/python: Object Processing is disabled
+/home/pi/moonraker/moonraker/components/file_manager/metadata.py:558: DeprecationWarning: ANTIALIAS is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.LANCZOS instead.
+  im.thumbnail((32, 32), Image.ANTIALIAS)
+
+2023-02-15 11:51:38,157 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Core Clamp C Primo.gcode" -u "/tmp/moonraker.upload-63256.mru") successfully finished
+2023-02-15 11:51:38,166 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 708.32ms
+2023-02-15 11:51:50,596 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.64ms
+2023-02-15 11:51:50,597 [websockets.py:open()] - Websocket Opened: ID: 2802668424, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 11:51:50,604 [websockets.py:_handle_identify()] - Websocket 2802668424 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 12:30:11,337 [websockets.py:on_close()] - Websocket Closed: ID: 2802668424 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 0.74
+2023-02-15 12:30:11,339 [websockets.py:on_close()] - Websocket Closed: ID: 2802082240 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 7.81
+2023-02-15 12:52:07,077 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2023-02-15 15:57:34,303 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2023-02-15 15:57:34,307 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1676498225.247092, Usage: 0.84%, Memory: 29788 kB
+System Time: 1676498226.248260, Usage: 0.75%, Memory: 29788 kB
+System Time: 1676498227.249635, Usage: 0.71%, Memory: 29788 kB
+System Time: 1676498228.250349, Usage: 4.2%, Memory: 29788 kB
+System Time: 1676498229.255990, Usage: 6.43%, Memory: 29788 kB
+System Time: 1676498230.254760, Usage: 5.62%, Memory: 29788 kB
+System Time: 1676498231.253346, Usage: 1.78%, Memory: 29788 kB
+System Time: 1676498232.256247, Usage: 0.72%, Memory: 29788 kB
+System Time: 1676498233.256137, Usage: 0.82%, Memory: 29788 kB
+System Time: 1676498234.256104, Usage: 0.78%, Memory: 29788 kB
+System Time: 1676498235.257038, Usage: 0.71%, Memory: 29788 kB
+System Time: 1676498236.258763, Usage: 0.74%, Memory: 29788 kB
+System Time: 1676498237.268879, Usage: 0.73%, Memory: 29788 kB
+System Time: 1676498238.260912, Usage: 0.74%, Memory: 29788 kB
+System Time: 1676498239.262024, Usage: 0.68%, Memory: 29788 kB
+System Time: 1676498240.263918, Usage: 5.34%, Memory: 29788 kB
+System Time: 1676498241.268651, Usage: 3.7%, Memory: 29788 kB
+System Time: 1676498242.268544, Usage: 1.79%, Memory: 29788 kB
+System Time: 1676498243.269860, Usage: 0.89%, Memory: 29788 kB
+System Time: 1676498244.269938, Usage: 2.47%, Memory: 29788 kB
+System Time: 1676498245.273771, Usage: 3.64%, Memory: 29788 kB
+System Time: 1676498246.274533, Usage: 0.95%, Memory: 29788 kB
+System Time: 1676498247.277255, Usage: 0.72%, Memory: 29788 kB
+System Time: 1676498248.276866, Usage: 0.88%, Memory: 29788 kB
+System Time: 1676498249.278195, Usage: 0.66%, Memory: 29788 kB
+System Time: 1676498250.279903, Usage: 2.79%, Memory: 29788 kB
+System Time: 1676498251.281616, Usage: 0.69%, Memory: 29788 kB
+System Time: 1676498252.282854, Usage: 3.49%, Memory: 29788 kB
+System Time: 1676498253.284135, Usage: 0.78%, Memory: 29788 kB
+System Time: 1676498254.285440, Usage: 4.22%, Memory: 29788 kB
+CPU Temperature: 54.53
+2023-02-15 15:57:34,321 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
+2023-02-15 16:31:42,858 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2023-02-15 16:31:42,860 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.55ms
+2023-02-15 16:31:42,860 [websockets.py:open()] - Websocket Opened: ID: 2802780480, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 16:31:42,877 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 16:33:29,677 [websockets.py:on_close()] - Websocket Closed: ID: 2802780480 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.81
+2023-02-15 16:33:29,688 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.58ms
+2023-02-15 16:33:29,688 [websockets.py:open()] - Websocket Opened: ID: 2802781440, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 16:33:29,706 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.19ms
+2023-02-15 16:33:29,706 [websockets.py:open()] - Websocket Opened: ID: 2802835688, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 16:33:29,709 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 16:33:29,725 [websockets.py:_handle_identify()] - Websocket 2802835688 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:00:52,557 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-02-15 17:00:53,816 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-02-15 17:00:53,867 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2023-02-15 17:01:11,831 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-02-15 17:01:11,833 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-02-15 17:01:12,083 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-02-15 17:01:12,342 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-02-15 17:01:12,357 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:01:12,378 [websockets.py:on_close()] - Websocket Closed: ID: 2802781440 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.69
+2023-02-15 17:01:12,392 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.70ms
+2023-02-15 17:01:12,393 [websockets.py:open()] - Websocket Opened: ID: 2802778848, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:01:12,429 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:01:12,606 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:01:12,838 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2023-02-15 17:07:12,635 [websockets.py:build_error()] - JSON-RPC Request Error: 400
+{'error': 'WebRequestError', 'message': 'Must home axis first: 0.000 0.000 25.000 [0.000]'}
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/klippy_connection.py", line 511, in request
+    return await self._request_standard(web_request)
+  File "/home/pi/moonraker/moonraker/klippy_connection.py", line 566, in _request_standard
+    return await base_request.wait()
+  File "/home/pi/moonraker/moonraker/klippy_connection.py", line 681, in wait
+    raise self.response
+utils.ServerError: {'error': 'WebRequestError', 'message': 'Must home axis first: 0.000 0.000 25.000 [0.000]'}
+2023-02-15 17:07:19,710 [websockets.py:on_close()] - Websocket Closed: ID: 2802835688 Close Code: None, Close Reason: None, Pong Time Elapsed: 10.00
+2023-02-15 17:07:19,761 [websockets.py:on_close()] - Websocket Closed: ID: 2802778848 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.37
+2023-02-15 17:07:19,775 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.77ms
+2023-02-15 17:07:19,776 [websockets.py:open()] - Websocket Opened: ID: 2802597240, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:07:19,812 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:07:20,007 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:08:59,158 [websockets.py:on_close()] - Websocket Closed: ID: 2802597240 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.38
+2023-02-15 17:08:59,168 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.77ms
+2023-02-15 17:08:59,169 [websockets.py:open()] - Websocket Opened: ID: 2822860680, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:08:59,187 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.94ms
+2023-02-15 17:08:59,187 [websockets.py:open()] - Websocket Opened: ID: 2802594552, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:08:59,195 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:08:59,221 [websockets.py:_handle_identify()] - Websocket 2802594552 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:08:59,667 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:24:35,712 [websockets.py:on_close()] - Websocket Closed: ID: 2802594552 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.52
+2023-02-15 17:24:35,731 [websockets.py:on_close()] - Websocket Closed: ID: 2822860680 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.56
+2023-02-15 17:24:35,741 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.88ms
+2023-02-15 17:24:35,742 [websockets.py:open()] - Websocket Opened: ID: 3051764896, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:24:35,760 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:24:35,867 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:32:20,902 [websockets.py:on_close()] - Websocket Closed: ID: 3051764896 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.16
+2023-02-15 17:32:20,912 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.60ms
+2023-02-15 17:32:20,912 [websockets.py:open()] - Websocket Opened: ID: 3051764776, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:32:20,928 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.08ms
+2023-02-15 17:32:20,929 [websockets.py:open()] - Websocket Opened: ID: 2802068856, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:32:20,937 [websockets.py:_handle_identify()] - Websocket 2802068856 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:32:20,959 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:32:21,505 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:32:36,879 [websockets.py:on_close()] - Websocket Closed: ID: 2802068856 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.95
+2023-02-15 17:32:36,891 [websockets.py:on_close()] - Websocket Closed: ID: 3051764776 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.98
+2023-02-15 17:32:36,910 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.52ms
+2023-02-15 17:32:36,910 [websockets.py:open()] - Websocket Opened: ID: 2812820856, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:32:36,932 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:32:37,051 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:32:55,358 [moonraker.py:_handle_term_signal()] - Exiting with signal SIGTERM
+2023-02-15 17:32:55,360 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-02-15 17:32:55,462 [websockets.py:on_close()] - Websocket Closed: ID: 2812820856 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 8.55
+2023-02-15 17:32:55,646 [database.py:close()] - Database statistics:
+
+announcements:
+psize: 4096
+depth: 0
+branch_pages: 0
+leaf_pages: 0
+overflow_pages: 0
+entries: 0
+authorized_users:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+gcode_metadata:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 3
+overflow_pages: 0
+entries: 11
+history:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 2
+mainsail:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 11
+moonraker:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 6
+update_manager:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 2
+overflow_pages: 0
+entries: 7
+webcams:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+2023-02-15 17:32:55,651 [moonraker.py:main()] - Server Shutdown
+--------------------Moonraker Log Start--------------------
+data_path: /home/pi/Ender5_data
+is_default_data_path: False
+config_file: /home/pi/Ender5_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+log_file: /home/pi/Ender5_data/logs/moonraker.log
+software_version: v0.7.1-876-g87dba2f
+python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+2023-02-15 17:33:15,262 [loghelper.py:__init__()] - data_path: /home/pi/Ender5_data
+2023-02-15 17:33:15,262 [loghelper.py:__init__()] - is_default_data_path: False
+2023-02-15 17:33:15,262 [loghelper.py:__init__()] - config_file: /home/pi/Ender5_data/config/moonraker.conf
+2023-02-15 17:33:15,262 [loghelper.py:__init__()] - startup_warnings: []
+2023-02-15 17:33:15,262 [loghelper.py:__init__()] - verbose: False
+2023-02-15 17:33:15,263 [loghelper.py:__init__()] - debug: False
+2023-02-15 17:33:15,263 [loghelper.py:__init__()] - asyncio_debug: False
+2023-02-15 17:33:15,263 [loghelper.py:__init__()] - is_backup_config: False
+2023-02-15 17:33:15,263 [loghelper.py:__init__()] - log_file: /home/pi/Ender5_data/logs/moonraker.log
+2023-02-15 17:33:15,263 [loghelper.py:__init__()] - software_version: v0.7.1-876-g87dba2f
+2023-02-15 17:33:15,263 [loghelper.py:__init__()] - python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+2023-02-15 17:33:15,271 [confighelper.py:read_file()] - Configuration File '/home/pi/Ender5_data/config/moonraker.conf' parsed, total size: 6017 B
+2023-02-15 17:33:15,272 [moonraker.py:add_log_rollover_item()] - 
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7126
+klippy_uds_address = /home/pi/Ender5_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+	*://Ender5
+	*://Ender5.local
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+refresh_interval = 168
+
+[update_manager mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager KlippyScreenAndroid]
+type = git_repo
+path = ~/KlipperScreen
+origin = https://github.com/jordanruthe/KlipperScreen.git
+env = ~/.KlipperScreen-env/bin/python
+requirements = scripts/KlipperScreen-requirements.txt
+install_script = scripts/KlipperScreen-install.sh
+
+[update_manager moonraker-telegram-bot]
+type = git_repo
+path = ~/moonraker-telegram-bot
+origin = https://github.com/nlef/moonraker-telegram-bot.git
+env = ~/moonraker-telegram-bot-env/bin/python
+requirements = scripts/requirements.txt
+install_script = scripts/install.sh
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+install_script = tools/install.sh
+
+[power light_strip]
+type = gpio
+pin = gpiochip0/gpio16
+initial_state = off
+
+[power Heater]
+type = gpio
+pin = gpiochip0/gpio12
+initial_state = off
+
+[power Cooling_Fan]
+type = gpio
+pin = gpiochip0/gpio05
+initial_state = off
+
+#################################################################
+All Configuration Files:
+/home/pi/Ender5_data/config/moonraker.conf
+#################################################################
+2023-02-15 17:33:15,312 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/logs/rollover
+2023-02-15 17:33:15,313 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.logs.rollover
+2023-02-15 17:33:15,313 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/info
+2023-02-15 17:33:15,314 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.info
+2023-02-15 17:33:15,314 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/config
+2023-02-15 17:33:15,314 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.config
+2023-02-15 17:33:15,314 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/restart
+2023-02-15 17:33:15,315 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.restart
+2023-02-15 17:33:15,630 [moonraker.py:load_component()] - Component (dbus_manager) loaded
+2023-02-15 17:33:15,727 [moonraker.py:add_log_rollover_item()] - Unsafe Shutdown Count: 8
+2023-02-15 17:33:15,746 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/database/list
+2023-02-15 17:33:15,747 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.database.list
+2023-02-15 17:33:15,749 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET POST DELETE) /server/database/item
+2023-02-15 17:33:15,750 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.database.get_item, server.database.post_item, server.database.delete_item
+2023-02-15 17:33:15,750 [moonraker.py:load_component()] - Component (database) loaded
+2023-02-15 17:33:15,845 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/files/list
+2023-02-15 17:33:15,846 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.list
+2023-02-15 17:33:15,846 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/files/metadata
+2023-02-15 17:33:15,847 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.metadata
+2023-02-15 17:33:15,847 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/files/thumbnails
+2023-02-15 17:33:15,847 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.thumbnails
+2023-02-15 17:33:15,847 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/files/roots
+2023-02-15 17:33:15,848 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.roots
+2023-02-15 17:33:15,848 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET POST DELETE) /server/files/directory
+2023-02-15 17:33:15,849 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.get_directory, server.files.post_directory, server.files.delete_directory
+2023-02-15 17:33:15,849 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/files/move
+2023-02-15 17:33:15,849 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.move
+2023-02-15 17:33:15,850 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/files/copy
+2023-02-15 17:33:15,850 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.copy
+2023-02-15 17:33:15,869 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/files/zip
+2023-02-15 17:33:15,870 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.zip
+2023-02-15 17:33:15,870 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.files.delete_file
+2023-02-15 17:33:15,885 [moonraker.py:load_component()] - Component (file_manager) loaded
+2023-02-15 17:33:15,892 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /printer/print/pause
+2023-02-15 17:33:15,892 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.print.pause
+2023-02-15 17:33:15,892 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /printer/print/resume
+2023-02-15 17:33:15,893 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.print.resume
+2023-02-15 17:33:15,893 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /printer/print/cancel
+2023-02-15 17:33:15,894 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.print.cancel
+2023-02-15 17:33:15,894 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /printer/print/start
+2023-02-15 17:33:15,894 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.print.start
+2023-02-15 17:33:15,894 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /printer/restart
+2023-02-15 17:33:15,895 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.restart
+2023-02-15 17:33:15,895 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /printer/firmware_restart
+2023-02-15 17:33:15,895 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.firmware_restart
+2023-02-15 17:33:15,895 [moonraker.py:load_component()] - Component (klippy_apis) loaded
+2023-02-15 17:33:16,278 [moonraker.py:load_component()] - Component (secrets) loaded
+2023-02-15 17:33:16,290 [moonraker.py:load_component()] - Component (template) loaded
+2023-02-15 17:33:16,480 [moonraker.py:add_log_rollover_item()] - 
+System Info:
+
+***python***
+  version: sys.version_info(major=3, minor=9, micro=2, releaselevel='final', serial=0)
+  version_string: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 32bit
+  processor: armv7l
+  cpu_desc: ARMv7 Processor rev 3 (v7l)
+  serial_number: 100000004453ee49
+  hardware_desc: BCM2711
+  model: Raspberry Pi 4 Model B Rev 1.4
+  total_memory: 3748192
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 6f
+  manufacturer: Unknown
+  oem_id: 0303
+  product_name: CBADS
+  product_revision: 1.0
+  serial_number: aa0005c6
+  manufacturer_date: 10/2022
+  capacity: 29.1 GiB
+  total_bytes: 31275876352
+
+***distribution***
+  name: Raspbian GNU/Linux 11 (bullseye)
+  id: raspbian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: debian
+  codename: bullseye
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+2023-02-15 17:33:16,519 [moonraker.py:load_component()] - Component (shell_command) loaded
+2023-02-15 17:33:16,519 [machine.py:__init__()] - Using System Provider: systemd_dbus
+2023-02-15 17:33:16,519 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/reboot
+2023-02-15 17:33:16,520 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.reboot
+2023-02-15 17:33:16,520 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/shutdown
+2023-02-15 17:33:16,521 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.shutdown
+2023-02-15 17:33:16,521 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/services/restart
+2023-02-15 17:33:16,521 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.services.restart
+2023-02-15 17:33:16,521 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/services/stop
+2023-02-15 17:33:16,522 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.services.stop
+2023-02-15 17:33:16,522 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/services/start
+2023-02-15 17:33:16,522 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.services.start
+2023-02-15 17:33:16,522 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /machine/system_info
+2023-02-15 17:33:16,523 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.system_info
+2023-02-15 17:33:16,523 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /machine/sudo/info
+2023-02-15 17:33:16,523 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.sudo.info
+2023-02-15 17:33:16,526 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/sudo/password
+2023-02-15 17:33:16,526 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.sudo.password
+2023-02-15 17:33:16,527 [moonraker.py:load_component()] - Component (machine) loaded
+2023-02-15 17:33:16,537 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/temperature_store
+2023-02-15 17:33:16,537 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.temperature_store
+2023-02-15 17:33:16,537 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/gcode_store
+2023-02-15 17:33:16,538 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.gcode_store
+2023-02-15 17:33:16,538 [moonraker.py:load_component()] - Component (data_store) loaded
+2023-02-15 17:33:16,552 [proc_stats.py:__init__()] - Detected 'vcgencmd', throttle checking enabled
+2023-02-15 17:33:16,552 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /machine/proc_stats
+2023-02-15 17:33:16,553 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.proc_stats
+2023-02-15 17:33:16,554 [moonraker.py:load_component()] - Component (proc_stats) loaded
+2023-02-15 17:33:16,563 [moonraker.py:load_component()] - Component (job_state) loaded
+2023-02-15 17:33:16,577 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST DELETE) /server/job_queue/job
+2023-02-15 17:33:16,577 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.job_queue.post_job, server.job_queue.delete_job
+2023-02-15 17:33:16,577 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/job_queue/pause
+2023-02-15 17:33:16,578 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.job_queue.pause
+2023-02-15 17:33:16,578 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/job_queue/start
+2023-02-15 17:33:16,578 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.job_queue.start
+2023-02-15 17:33:16,578 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/job_queue/status
+2023-02-15 17:33:16,579 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.job_queue.status
+2023-02-15 17:33:16,579 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/job_queue/jump
+2023-02-15 17:33:16,580 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.job_queue.jump
+2023-02-15 17:33:16,580 [moonraker.py:load_component()] - Component (job_queue) loaded
+2023-02-15 17:33:16,634 [moonraker.py:load_component()] - Component (http_client) loaded
+2023-02-15 17:33:16,646 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/announcements/list
+2023-02-15 17:33:16,647 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.announcements.list
+2023-02-15 17:33:16,647 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/announcements/dismiss
+2023-02-15 17:33:16,648 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.announcements.dismiss
+2023-02-15 17:33:16,648 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/announcements/update
+2023-02-15 17:33:16,648 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.announcements.update
+2023-02-15 17:33:16,649 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST DELETE) /server/announcements/feed
+2023-02-15 17:33:16,649 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.announcements.post_feed, server.announcements.delete_feed
+2023-02-15 17:33:16,649 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/announcements/feeds
+2023-02-15 17:33:16,650 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.announcements.feeds
+2023-02-15 17:33:16,650 [moonraker.py:load_component()] - Component (announcements) loaded
+2023-02-15 17:33:16,664 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/webcams/list
+2023-02-15 17:33:16,664 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.webcams.list
+2023-02-15 17:33:16,664 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET POST DELETE) /server/webcams/item
+2023-02-15 17:33:16,665 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.webcams.get_item, server.webcams.post_item, server.webcams.delete_item
+2023-02-15 17:33:16,665 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/webcams/test
+2023-02-15 17:33:16,665 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.webcams.test
+2023-02-15 17:33:16,666 [moonraker.py:load_component()] - Component (webcam) loaded
+2023-02-15 17:33:16,676 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: connection.send_event
+2023-02-15 17:33:16,676 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/extensions/list
+2023-02-15 17:33:16,677 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.extensions.list
+2023-02-15 17:33:16,677 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/extensions/request
+2023-02-15 17:33:16,678 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.extensions.request
+2023-02-15 17:33:16,678 [moonraker.py:load_component()] - Component (extensions) loaded
+2023-02-15 17:33:16,810 [authorization.py:__init__()] - Authorization Configuration Loaded
+Trusted Clients:
+10.0.0.0/8
+127.0.0.0/8
+169.254.0.0/16
+172.16.0.0/12
+192.168.0.0/16
+fe80::/10
+::1/128
+CORS Domains:
+.*\.lan
+.*\.local
+.*://localhost
+.*://localhost:.*
+.*://my\.mainsail\.xyz
+.*://app\.fluidd\.xyz
+.*://Ender5
+.*://Ender5\.local
+2023-02-15 17:33:16,810 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /access/login
+2023-02-15 17:33:16,811 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.login
+2023-02-15 17:33:16,811 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /access/logout
+2023-02-15 17:33:16,811 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.logout
+2023-02-15 17:33:16,811 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /access/refresh_jwt
+2023-02-15 17:33:16,811 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.refresh_jwt
+2023-02-15 17:33:16,812 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET POST DELETE) /access/user
+2023-02-15 17:33:16,812 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.get_user, access.post_user, access.delete_user
+2023-02-15 17:33:16,812 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /access/users/list
+2023-02-15 17:33:16,813 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.users.list
+2023-02-15 17:33:16,813 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /access/user/password
+2023-02-15 17:33:16,813 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.user.password
+2023-02-15 17:33:16,814 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET POST) /access/api_key
+2023-02-15 17:33:16,814 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.get_api_key, access.post_api_key
+2023-02-15 17:33:16,814 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /access/oneshot_token
+2023-02-15 17:33:16,814 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.oneshot_token
+2023-02-15 17:33:16,815 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /access/info
+2023-02-15 17:33:16,815 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: access.info
+2023-02-15 17:33:16,815 [moonraker.py:load_component()] - Component (authorization) loaded
+2023-02-15 17:33:16,830 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/version
+2023-02-15 17:33:16,830 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/server
+2023-02-15 17:33:16,831 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /api/login
+2023-02-15 17:33:16,831 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/currentuser
+2023-02-15 17:33:16,831 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/settings
+2023-02-15 17:33:16,832 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/job
+2023-02-15 17:33:16,833 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/printer
+2023-02-15 17:33:16,834 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /api/printer/command
+2023-02-15 17:33:16,835 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /api/printerprofiles
+2023-02-15 17:33:16,836 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /api/files/moonraker/(?P<relative_path>.+)
+2023-02-15 17:33:16,837 [moonraker.py:load_component()] - Component (octoprint_compat) loaded
+2023-02-15 17:33:16,848 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET DELETE) /server/history/job
+2023-02-15 17:33:16,851 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.history.get_job, server.history.delete_job
+2023-02-15 17:33:16,851 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/history/list
+2023-02-15 17:33:16,852 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.history.list
+2023-02-15 17:33:16,852 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /server/history/totals
+2023-02-15 17:33:16,853 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.history.totals
+2023-02-15 17:33:16,853 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /server/history/reset_totals
+2023-02-15 17:33:16,853 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: server.history.reset_totals
+2023-02-15 17:33:16,853 [moonraker.py:load_component()] - Component (history) loaded
+2023-02-15 17:33:17,012 [base_deploy.py:log_info()] - Application moonraker: Detected virtualenv: /home/pi/moonraker-env
+2023-02-15 17:33:17,014 [base_deploy.py:log_info()] - Application klipper: Detected virtualenv: /home/pi/klippy-env
+2023-02-15 17:33:17,027 [base_deploy.py:log_info()] - Application KlippyScreenAndroid: Detected virtualenv: /home/pi/.KlipperScreen-env
+2023-02-15 17:33:17,030 [base_deploy.py:log_info()] - Application moonraker-telegram-bot: Detected virtualenv: /home/pi/moonraker-telegram-bot-env
+2023-02-15 17:33:17,038 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/moonraker
+2023-02-15 17:33:17,038 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.moonraker
+2023-02-15 17:33:17,038 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/klipper
+2023-02-15 17:33:17,040 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.klipper
+2023-02-15 17:33:17,040 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/system
+2023-02-15 17:33:17,040 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.system
+2023-02-15 17:33:17,040 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/client
+2023-02-15 17:33:17,041 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.client
+2023-02-15 17:33:17,041 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/full
+2023-02-15 17:33:17,041 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.full
+2023-02-15 17:33:17,041 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /machine/update/status
+2023-02-15 17:33:17,042 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.status
+2023-02-15 17:33:17,042 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/refresh
+2023-02-15 17:33:17,042 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.refresh
+2023-02-15 17:33:17,042 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/update/recover
+2023-02-15 17:33:17,043 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.update.recover
+2023-02-15 17:33:17,043 [moonraker.py:load_component()] - Component (update_manager) loaded
+2023-02-15 17:33:17,054 [power.py:__init__()] - Power component loading devices: ['power light_strip', 'power Heater', 'power Cooling_Fan']
+2023-02-15 17:33:17,096 [moonraker.py:add_log_rollover_item()] - libgpiod version: 1.6.2
+2023-02-15 17:33:17,096 [moonraker.py:load_component()] - Component (gpio) loaded
+2023-02-15 17:33:17,098 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /machine/device_power/devices
+2023-02-15 17:33:17,098 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.device_power.devices
+2023-02-15 17:33:17,098 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET) /machine/device_power/status
+2023-02-15 17:33:17,099 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.device_power.status
+2023-02-15 17:33:17,099 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/device_power/on
+2023-02-15 17:33:17,099 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.device_power.on
+2023-02-15 17:33:17,100 [app.py:register_local_handler()] - Registering HTTP Endpoint: (POST) /machine/device_power/off
+2023-02-15 17:33:17,101 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.device_power.off
+2023-02-15 17:33:17,101 [app.py:register_local_handler()] - Registering HTTP Endpoint: (GET POST) /machine/device_power/device
+2023-02-15 17:33:17,101 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: machine.device_power.get_device, machine.device_power.post_device
+2023-02-15 17:33:17,101 [moonraker.py:load_component()] - Component (power) loaded
+2023-02-15 17:33:17,111 [moonraker.py:_initialize_component()] - Performing Component Post Init: [dbus_manager]
+2023-02-15 17:33:17,510 [moonraker.py:_initialize_component()] - Performing Component Post Init: [file_manager]
+2023-02-15 17:33:17,584 [moonraker.py:_initialize_component()] - Performing Component Post Init: [machine]
+2023-02-15 17:33:17,584 [machine.py:validation_init()] - Installation version in database up to date
+2023-02-15 17:33:18,151 [machine.py:check_virt_status()] - No Virtualization Detected
+2023-02-15 17:33:18,161 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2023-02-15 17:33:18,164 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.1.224
+2023-02-15 17:33:18,201 [machine.py:extract_service_info()] - Detected alternate unit name for moonraker: moonraker-Ender5.service
+2023-02-15 17:33:18,231 [moonraker.py:add_log_rollover_item()] - 
+Systemd unit moonraker-Ender5.service:
+unit_name: moonraker-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'network-online.target', '-.mount', 'system.slice']
+**After=['basic.target', 'sysinit.target', 'systemd-journald.socket', 'network-online.target', '-.mount', 'system.slice']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/moonraker.env
+**ExecStart=/home/pi/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/pi/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-Ender5.service
+**Description=API Server for Klipper SV1 Ender5
+**User=pi
+2023-02-15 17:33:18,232 [moonraker.py:_initialize_component()] - Performing Component Post Init: [proc_stats]
+2023-02-15 17:33:18,232 [moonraker.py:_initialize_component()] - Performing Component Post Init: [announcements]
+2023-02-15 17:33:18,234 [moonraker.py:_initialize_component()] - Performing Component Post Init: [webcam]
+2023-02-15 17:33:18,234 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.1.224
+2023-02-15 17:33:18,234 [moonraker.py:_initialize_component()] - Performing Component Post Init: [authorization]
+2023-02-15 17:33:18,234 [moonraker.py:_initialize_component()] - Performing Component Post Init: [update_manager]
+2023-02-15 17:33:18,236 [moonraker.py:_initialize_component()] - Performing Component Post Init: [power]
+2023-02-15 17:33:19,152 [update_manager.py:initialize()] - PackageDeploy: Using PackageKit Provider
+2023-02-15 17:33:19,154 [update_manager.py:initialize()] - 
+Initializing Client Updater: 'mainsail',
+Channel: stable
+path: /home/pi/mainsail
+2023-02-15 17:33:19,169 [extensions.py:start_unix_server()] - Creating Unix Domain Socket at '/home/pi/Ender5_data/comms/moonraker.sock'
+2023-02-15 17:33:19,174 [moonraker.py:start_server()] - Starting Moonraker on (0.0.0.0, 7126), Hostname: raspberrypi
+2023-02-15 17:33:19,177 [app.py:listen()] - SSL Certificate/Key not configured, aborting HTTPS Server startup
+2023-02-15 17:33:19,429 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-02-15 17:33:19,465 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2023-02-15 17:33:19,492 [moonraker.py:add_log_rollover_item()] - 
+Systemd unit klipper-Ender5.service:
+unit_name: klipper-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'sysinit.target', 'system.slice']
+**After=['network-online.target', 'basic.target', 'systemd-journald.socket', '-.mount', 'system.slice', 'sysinit.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/klipper.env
+**ExecStart=/home/pi/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/pi/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender5.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=pi
+2023-02-15 17:33:19,746 [moonraker.py:add_log_rollover_item()] - Klipper Version: v0.11.0-110-gaca0c71a
+2023-02-15 17:33:19,753 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/info
+2023-02-15 17:33:19,753 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.info
+2023-02-15 17:33:19,753 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/emergency_stop
+2023-02-15 17:33:19,754 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.emergency_stop
+2023-02-15 17:33:19,754 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/gcode/help
+2023-02-15 17:33:19,754 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.gcode.help
+2023-02-15 17:33:19,755 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/gcode/script
+2023-02-15 17:33:19,755 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.gcode.script
+2023-02-15 17:33:19,755 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/gcode/restart
+2023-02-15 17:33:19,756 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.gcode.restart
+2023-02-15 17:33:19,756 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/gcode/firmware_restart
+2023-02-15 17:33:19,756 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.gcode.firmware_restart
+2023-02-15 17:33:19,756 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/objects/list
+2023-02-15 17:33:19,757 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.objects.list
+2023-02-15 17:33:19,757 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/objects/query
+2023-02-15 17:33:19,757 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.objects.query
+2023-02-15 17:33:19,758 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/objects/subscribe
+2023-02-15 17:33:19,761 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.objects.subscribe
+2023-02-15 17:33:19,761 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/pause_resume/cancel
+2023-02-15 17:33:19,762 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.pause_resume.cancel
+2023-02-15 17:33:19,762 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/pause_resume/pause
+2023-02-15 17:33:19,762 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.pause_resume.pause
+2023-02-15 17:33:19,763 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/pause_resume/resume
+2023-02-15 17:33:19,763 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.pause_resume.resume
+2023-02-15 17:33:19,763 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/motion_report/dump_stepper
+2023-02-15 17:33:19,764 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.motion_report.dump_stepper
+2023-02-15 17:33:19,764 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/query_endstops/status
+2023-02-15 17:33:19,765 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.query_endstops.status
+2023-02-15 17:33:19,765 [app.py:register_remote_handler()] - Registering HTTP endpoint: (GET POST) /printer/motion_report/dump_trapq
+2023-02-15 17:33:19,766 [websockets.py:register_api_handler()] - Registering Websocket JSON-RPC methods: printer.motion_report.dump_trapq
+2023-02-15 17:33:19,769 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-02-15 17:33:19,770 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-02-15 17:33:20,019 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-02-15 17:33:20,280 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-02-15 17:33:20,772 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2023-02-15 17:33:44,608 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2023-02-15 17:33:44,620 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 14.28ms
+2023-02-15 17:33:44,621 [websockets.py:open()] - Websocket Opened: ID: 3052811744, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:33:44,628 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:33:44,690 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:33:55,154 [websockets.py:on_close()] - Websocket Closed: ID: 3052811744 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.53
+2023-02-15 17:33:55,166 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.56ms
+2023-02-15 17:33:55,167 [websockets.py:open()] - Websocket Opened: ID: 3052813760, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:33:55,188 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.99ms
+2023-02-15 17:33:55,188 [websockets.py:open()] - Websocket Opened: ID: 3052742496, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:33:55,194 [websockets.py:_handle_identify()] - Websocket 3052742496 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:33:55,217 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:33:55,725 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:40:50,263 [websockets.py:on_close()] - Websocket Closed: ID: 3052742496 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.07
+2023-02-15 17:40:50,276 [websockets.py:on_close()] - Websocket Closed: ID: 3052813760 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.11
+2023-02-15 17:40:50,285 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.24ms
+2023-02-15 17:40:50,286 [websockets.py:open()] - Websocket Opened: ID: 2813463568, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:40:50,297 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:40:50,572 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:43:19,618 [websockets.py:on_close()] - Websocket Closed: ID: 2813463568 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.33
+2023-02-15 17:43:19,623 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.92ms
+2023-02-15 17:43:19,624 [websockets.py:open()] - Websocket Opened: ID: 2822686968, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:43:19,634 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:43:19,657 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.69ms
+2023-02-15 17:43:19,658 [websockets.py:open()] - Websocket Opened: ID: 2822651352, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:43:19,676 [websockets.py:_handle_identify()] - Websocket 2822651352 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:43:20,079 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:43:24,337 [websockets.py:on_close()] - Websocket Closed: ID: 2822651352 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.68
+2023-02-15 17:43:24,347 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.48ms
+2023-02-15 17:43:24,347 [websockets.py:open()] - Websocket Opened: ID: 2822649768, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:43:24,351 [websockets.py:_handle_identify()] - Websocket 2822649768 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:44:17,574 [websockets.py:on_close()] - Websocket Closed: ID: 2822649768 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.22
+2023-02-15 17:44:17,590 [websockets.py:on_close()] - Websocket Closed: ID: 2822686968 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.92
+2023-02-15 17:44:17,612 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.49ms
+2023-02-15 17:44:17,612 [websockets.py:open()] - Websocket Opened: ID: 2822685072, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:44:17,628 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:44:17,705 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:45:54,836 [websockets.py:on_close()] - Websocket Closed: ID: 2822685072 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.22
+2023-02-15 17:45:54,847 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.07ms
+2023-02-15 17:45:54,848 [websockets.py:open()] - Websocket Opened: ID: 2813590544, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:45:54,859 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:45:54,992 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:56:10,805 [websockets.py:on_close()] - Websocket Closed: ID: 2813590544 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.95
+2023-02-15 17:56:10,813 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.45ms
+2023-02-15 17:56:10,813 [websockets.py:open()] - Websocket Opened: ID: 2813588624, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:56:10,828 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:56:11,118 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:56:11,188 [websockets.py:on_close()] - Websocket Closed: ID: 2813588624 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.38
+2023-02-15 17:56:11,197 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.04ms
+2023-02-15 17:56:11,197 [websockets.py:open()] - Websocket Opened: ID: 2822650488, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:56:11,244 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:56:11,349 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:57:17,632 [websockets.py:on_close()] - Websocket Closed: ID: 2822650488 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.43
+2023-02-15 17:57:17,640 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.99ms
+2023-02-15 17:57:17,641 [websockets.py:open()] - Websocket Opened: ID: 3052832968, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:57:17,653 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:57:17,689 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.12ms
+2023-02-15 17:57:17,689 [websockets.py:open()] - Websocket Opened: ID: 2822651088, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:57:17,698 [websockets.py:_handle_identify()] - Websocket 2822651088 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 17:57:18,082 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:57:46,452 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 10.21ms
+2023-02-15 17:57:47,492 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-02-15 17:57:48,750 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-02-15 17:57:48,793 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2023-02-15 17:57:51,528 [websockets.py:on_close()] - Websocket Closed: ID: 3052832968 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.89
+2023-02-15 17:57:51,536 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.61ms
+2023-02-15 17:57:51,537 [websockets.py:open()] - Websocket Opened: ID: 2822668168, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:57:51,556 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:57:51,803 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-02-15 17:57:51,805 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-02-15 17:57:51,825 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:57:52,051 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-02-15 17:57:52,315 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-02-15 17:57:52,331 [websockets.py:on_close()] - Websocket Closed: ID: 2822668168 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.80
+2023-02-15 17:57:52,338 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.09ms
+2023-02-15 17:57:52,339 [websockets.py:open()] - Websocket Opened: ID: 2803506672, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:57:52,355 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:57:52,562 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 17:57:52,805 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2023-02-15 17:59:32,765 [websockets.py:on_close()] - Websocket Closed: ID: 2822651088 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.07
+2023-02-15 17:59:32,790 [websockets.py:on_close()] - Websocket Closed: ID: 2803506672 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.45
+2023-02-15 17:59:32,798 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.67ms
+2023-02-15 17:59:32,799 [websockets.py:open()] - Websocket Opened: ID: 2803142368, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 17:59:32,814 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 17:59:32,857 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:00:24,412 [websockets.py:on_close()] - Websocket Closed: ID: 2803142368 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.61
+2023-02-15 18:00:24,420 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.75ms
+2023-02-15 18:00:24,421 [websockets.py:open()] - Websocket Opened: ID: 2803143032, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:00:24,436 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:00:24,452 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.58ms
+2023-02-15 18:00:24,453 [websockets.py:open()] - Websocket Opened: ID: 2803495744, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:00:24,459 [websockets.py:_handle_identify()] - Websocket 2803495744 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 18:00:24,971 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:00:50,606 [job_state.py:_status_update()] - Job Started: Stop Block 23_5x4.gcode
+2023-02-15 18:04:56,779 [websockets.py:on_close()] - Websocket Closed: ID: 2803495744 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.32
+2023-02-15 18:04:56,806 [websockets.py:on_close()] - Websocket Closed: ID: 2803143032 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.38
+2023-02-15 18:04:56,814 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.45ms
+2023-02-15 18:04:56,814 [websockets.py:open()] - Websocket Opened: ID: 2803146128, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:04:56,831 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:12:18,657 [websockets.py:on_close()] - Websocket Closed: ID: 2803146128 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.84
+2023-02-15 18:12:18,667 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.61ms
+2023-02-15 18:12:18,667 [websockets.py:open()] - Websocket Opened: ID: 2822642512, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:12:18,683 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:12:19,169 [websockets.py:on_close()] - Websocket Closed: ID: 2822642512 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.50
+2023-02-15 18:12:19,184 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.82ms
+2023-02-15 18:12:19,185 [websockets.py:open()] - Websocket Opened: ID: 2803146416, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:12:19,207 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:13:08,843 [websockets.py:on_close()] - Websocket Closed: ID: 2803146416 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.65
+2023-02-15 18:13:08,852 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.31ms
+2023-02-15 18:13:08,853 [websockets.py:open()] - Websocket Opened: ID: 2813565824, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:13:08,871 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.90ms
+2023-02-15 18:13:08,871 [websockets.py:open()] - Websocket Opened: ID: 2813565680, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:13:08,886 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:13:08,912 [websockets.py:_handle_identify()] - Websocket 2813565680 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 18:13:49,278 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 8.77ms
+2023-02-15 18:13:52,464 [websockets.py:on_close()] - Websocket Closed: ID: 2813565680 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.59
+2023-02-15 18:13:52,486 [websockets.py:on_close()] - Websocket Closed: ID: 2813565824 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.63
+2023-02-15 18:13:52,502 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.29ms
+2023-02-15 18:13:52,502 [websockets.py:open()] - Websocket Opened: ID: 3052740672, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:13:52,512 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:16:19,733 [websockets.py:on_close()] - Websocket Closed: ID: 3052740672 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.23
+2023-02-15 18:16:19,749 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.56ms
+2023-02-15 18:16:19,749 [websockets.py:open()] - Websocket Opened: ID: 3052741032, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:16:19,763 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:16:19,779 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.34ms
+2023-02-15 18:16:19,779 [websockets.py:open()] - Websocket Opened: ID: 3052813712, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:16:19,787 [websockets.py:_handle_identify()] - Websocket 3052813712 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 18:18:04,142 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 7.69ms
+2023-02-15 18:18:05,175 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-02-15 18:18:06,433 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-02-15 18:18:06,482 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2023-02-15 18:18:09,458 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-02-15 18:18:09,460 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-02-15 18:18:09,708 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-02-15 18:18:09,968 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-02-15 18:18:09,973 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:18:09,990 [websockets.py:on_close()] - Websocket Closed: ID: 3052741032 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.24
+2023-02-15 18:18:09,997 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.20ms
+2023-02-15 18:18:09,997 [websockets.py:open()] - Websocket Opened: ID: 2803126672, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:18:10,025 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:18:10,233 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:18:10,466 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2023-02-15 18:18:19,538 [websockets.py:on_close()] - Websocket Closed: ID: 3052813712 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.76
+2023-02-15 18:18:19,561 [websockets.py:on_close()] - Websocket Closed: ID: 2803126672 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.57
+2023-02-15 18:18:19,570 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.32ms
+2023-02-15 18:18:19,571 [websockets.py:open()] - Websocket Opened: ID: 3052688264, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:18:19,586 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:18:19,746 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:19:34,871 [websockets.py:on_close()] - Websocket Closed: ID: 3052688264 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.30
+2023-02-15 18:19:34,883 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.43ms
+2023-02-15 18:19:34,884 [websockets.py:open()] - Websocket Opened: ID: 3052689080, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:19:34,898 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:19:35,495 [websockets.py:on_close()] - Websocket Closed: ID: 3052689080 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.61
+2023-02-15 18:19:35,506 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.40ms
+2023-02-15 18:19:35,507 [websockets.py:open()] - Websocket Opened: ID: 3052691264, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:19:35,525 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:19:35,730 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:19:45,242 [websockets.py:on_close()] - Websocket Closed: ID: 3052691264 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.74
+2023-02-15 18:19:45,259 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.31ms
+2023-02-15 18:19:45,259 [websockets.py:open()] - Websocket Opened: ID: 2803128520, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:19:45,278 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.09ms
+2023-02-15 18:19:45,278 [websockets.py:open()] - Websocket Opened: ID: 2803128280, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:19:45,284 [websockets.py:_handle_identify()] - Websocket 2803128280 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 18:19:45,305 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:19:45,765 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:20:25,366 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 11.02ms
+2023-02-15 18:20:26,402 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-02-15 18:20:27,663 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-02-15 18:20:27,741 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2023-02-15 18:20:30,367 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-02-15 18:20:30,368 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-02-15 18:20:30,431 [websockets.py:on_close()] - Websocket Closed: ID: 2803128520 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.17
+2023-02-15 18:20:30,440 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.17ms
+2023-02-15 18:20:30,441 [websockets.py:open()] - Websocket Opened: ID: 2803130296, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:20:30,461 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:20:30,625 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-02-15 18:20:30,631 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:20:30,880 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-02-15 18:20:31,375 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2023-02-15 18:20:31,381 [websockets.py:on_close()] - Websocket Closed: ID: 2803130296 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.94
+2023-02-15 18:20:31,389 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.03ms
+2023-02-15 18:20:31,390 [websockets.py:open()] - Websocket Opened: ID: 2803129672, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:20:31,424 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 18:20:31,629 [websockets.py:build_error()] - JSON-RPC Request Error: -32601
+Metadata not available for <>
+Traceback (most recent call last):
+  File "/home/pi/moonraker/moonraker/websockets.py", line 300, in execute_method
+    result = await callback(params)
+  File "/home/pi/moonraker/moonraker/websockets.py", line 414, in func
+    result = await callback(
+  File "/home/pi/moonraker/moonraker/components/file_manager/file_manager.py", line 368, in _handle_metadata_request
+    raise self.server.error(
+utils.ServerError: Metadata not available for <>
+2023-02-15 18:20:44,910 [job_state.py:_status_update()] - Job Started: Stop Block 23_5x4.gcode
+2023-02-15 18:20:58,206 [websockets.py:on_close()] - Websocket Closed: ID: 2803128280 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.93
+2023-02-15 18:20:58,235 [websockets.py:on_close()] - Websocket Closed: ID: 2803129672 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.84
+2023-02-15 18:20:58,251 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.75ms
+2023-02-15 18:20:58,252 [websockets.py:open()] - Websocket Opened: ID: 3052813376, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 18:20:58,271 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 19:23:31,388 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2023-02-15 19:23:41,578 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.38
+2023-02-15 19:23:41,580 [app.py:log_request()] - 101 GET /websocket (192.168.1.38) [_TRUSTED_USER_] 3.43ms
+2023-02-15 19:23:41,581 [websockets.py:open()] - Websocket Opened: ID: 2822667448, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 13; SM-S908U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 19:23:41,653 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 19:23:45,727 [app.py:log_request()] - 101 GET /websocket (192.168.1.38) [_TRUSTED_USER_] 2.36ms
+2023-02-15 19:23:45,728 [websockets.py:open()] - Websocket Opened: ID: 3052743024, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 13; SM-S908U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 19:23:45,744 [websockets.py:_handle_identify()] - Websocket 3052743024 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 19:23:53,057 [websockets.py:on_close()] - Websocket Closed: ID: 3052743024 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.33
+2023-02-15 19:23:53,116 [websockets.py:on_close()] - Websocket Closed: ID: 2822667448 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.53
+2023-02-15 19:23:53,138 [app.py:log_request()] - 101 GET /websocket (192.168.1.38) [_TRUSTED_USER_] 2.52ms
+2023-02-15 19:23:53,138 [websockets.py:open()] - Websocket Opened: ID: 2813590880, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 13; SM-S908U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 19:23:53,156 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 19:24:07,680 [websockets.py:on_close()] - Websocket Closed: ID: 2813590880 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.53
+2023-02-15 19:24:07,856 [app.py:log_request()] - 101 GET /websocket (192.168.1.38) [_TRUSTED_USER_] 2.65ms
+2023-02-15 19:24:07,857 [websockets.py:open()] - Websocket Opened: ID: 3052833376, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 13; SM-S908U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 19:24:08,060 [app.py:log_request()] - 101 GET /websocket (192.168.1.38) [_TRUSTED_USER_] 1.54ms
+2023-02-15 19:24:08,061 [websockets.py:open()] - Websocket Opened: ID: 2803254320, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 13; SM-S908U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 19:24:08,071 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 19:24:08,185 [websockets.py:_handle_identify()] - Websocket 2803254320 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 19:30:08,086 [websockets.py:write_to_socket()] - Websocket closed while writing: 2803254320
+2023-02-15 19:30:13,063 [websockets.py:on_close()] - Websocket Closed: ID: 2803254320 Close Code: None, Close Reason: None, Pong Time Elapsed: 44.99
+2023-02-15 19:30:18,019 [websockets.py:write_to_socket()] - Websocket closed while writing: 3052833376
+2023-02-15 19:30:22,860 [websockets.py:on_close()] - Websocket Closed: ID: 3052833376 Close Code: None, Close Reason: None, Pong Time Elapsed: 45.00
+2023-02-15 20:28:31,399 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.38
+2023-02-15 20:50:18,286 [websockets.py:on_close()] - Websocket Closed: ID: 3052813376 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.03
+2023-02-15 20:50:18,296 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2023-02-15 20:50:18,298 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.44ms
+2023-02-15 20:50:18,298 [websockets.py:open()] - Websocket Opened: ID: 2822685936, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:50:18,315 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 20:50:18,801 [websockets.py:on_close()] - Websocket Closed: ID: 2822685936 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.51
+2023-02-15 20:50:18,820 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.81ms
+2023-02-15 20:50:18,821 [websockets.py:open()] - Websocket Opened: ID: 2822688024, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:50:18,880 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 20:50:33,710 [websockets.py:on_close()] - Websocket Closed: ID: 2822688024 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.89
+2023-02-15 20:50:33,719 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.73ms
+2023-02-15 20:50:33,719 [websockets.py:open()] - Websocket Opened: ID: 2822734656, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:50:33,739 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 20:50:33,759 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.84ms
+2023-02-15 20:50:33,760 [websockets.py:open()] - Websocket Opened: ID: 3052832200, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:50:33,765 [websockets.py:_handle_identify()] - Websocket 3052832200 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 20:51:41,134 [job_state.py:_status_update()] - Job Started: Corner Top C Primo Mirrored.gcode
+2023-02-15 20:51:50,616 [websockets.py:on_close()] - Websocket Closed: ID: 3052832200 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.85
+2023-02-15 20:51:50,646 [websockets.py:on_close()] - Websocket Closed: ID: 2822734656 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.92
+2023-02-15 20:51:50,662 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.37ms
+2023-02-15 20:51:50,663 [websockets.py:open()] - Websocket Opened: ID: 2813565128, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:51:50,681 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 20:53:58,214 [websockets.py:on_close()] - Websocket Closed: ID: 2813565128 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.55
+2023-02-15 20:53:58,236 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.61ms
+2023-02-15 20:53:58,236 [websockets.py:open()] - Websocket Opened: ID: 2813565416, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:53:58,269 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.11ms
+2023-02-15 20:53:58,269 [websockets.py:open()] - Websocket Opened: ID: 2822639704, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:53:58,272 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 20:53:58,288 [websockets.py:_handle_identify()] - Websocket 2822639704 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 20:56:06,016 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.70ms
+2023-02-15 20:56:06,017 [websockets.py:open()] - Websocket Opened: ID: 2813564600, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:56:06,076 [file_manager.py:get_file_list()] - Updating File List <config>...
+2023-02-15 20:56:10,703 [app.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.54ms
+2023-02-15 20:56:10,704 [websockets.py:open()] - Websocket Opened: ID: 2813591240, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36, Host Name: 192.168.1.224
+2023-02-15 20:56:10,707 [websockets.py:_handle_identify()] - Websocket 2813591240 Client Identified - Name: mainsail, Version: 2.4.1, Type: web
+2023-02-15 20:56:21,119 [websockets.py:on_close()] - Websocket Closed: ID: 2813591240 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 0.41
+2023-02-15 20:56:21,120 [websockets.py:on_close()] - Websocket Closed: ID: 2813564600 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 5.10
+2023-02-15 21:58:31,420 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
