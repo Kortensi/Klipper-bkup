@@ -1718,3 +1718,10 @@ System Time: 1732381160.945092, Usage: 2.08%, Memory: 40280 kB
 2024-11-23 10:59:35,776 [klippy_connection.py:_check_ready()] - Klippy ready
 2024-11-23 10:59:35,913 [file_manager.py:get_file_list()] - Updating File List <config>...
 2024-11-23 10:59:36,523 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-23 11:00:49,745 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2024-11-23 11:00:49,746 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.48ms
+2024-11-23 11:00:49,746 [websockets.py:open()] - Websocket Opened: ID: 4079926768, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:00:49,751 [websockets.py:_handle_identify()] - Websocket 4079926768 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-23 11:00:49,812 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.46ms
+2024-11-23 11:00:49,813 [websockets.py:open()] - Websocket Opened: ID: 4070936336, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:00:49,825 [file_manager.py:get_file_list()] - Updating File List <config>...
