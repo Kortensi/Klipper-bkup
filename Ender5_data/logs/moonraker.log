@@ -1725,3 +1725,807 @@ System Time: 1732381160.945092, Usage: 2.08%, Memory: 40280 kB
 2024-11-23 11:00:49,812 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.46ms
 2024-11-23 11:00:49,813 [websockets.py:open()] - Websocket Opened: ID: 4070936336, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
 2024-11-23 11:00:49,825 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:15:10,632 [base_deploy.py:log_info()] - PackageKit: Detected 1 package updates:
+libpq5
+2024-11-23 11:15:10,696 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker status --porcelain -b) successfully finished
+2024-11-23 11:15:10,715 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker branch --list --no-color) successfully finished
+2024-11-23 11:15:10,743 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker remote get-url origin) successfully finished
+2024-11-23 11:15:11,208 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker fetch origin --prune --progress) successfully finished
+2024-11-23 11:15:11,223 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-11-23 11:15:11,237 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker rev-parse HEAD) successfully finished
+2024-11-23 11:15:11,255 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-11-23 11:15:11,269 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker rev-parse origin/master) successfully finished
+2024-11-23 11:15:11,285 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-11-23 11:15:11,301 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker rev-list HEAD..ccfe32f2368a5ff6c2497478319909daeeeb8edf --count) successfully finished
+2024-11-23 11:15:11,303 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/pi/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: ccfe32f2368a5ff6c2497478319909daeeeb8edf
+Upstream Commit SHA: ccfe32f2368a5ff6c2497478319909daeeeb8edf
+Current Version: v0.9.3-3-gccfe32f2
+Upstream Version: v0.9.3-3-gccfe32f2
+Rollback Commit: 4e00a0760e756872b2fbb23a82b88dbceb383cf4
+Rollback Branch: master
+Rollback Version: v0.9.3-1-g4e00a076
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:15:11,303 [base_deploy.py:log_info()] - Git Repo moonraker: Channel: dev
+2024-11-23 11:15:11,304 [base_deploy.py:log_info()] - Git Repo moonraker: Validity check for git repo passed
+2024-11-23 11:15:11,445 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper status --porcelain -b) successfully finished
+2024-11-23 11:15:11,459 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper branch --list --no-color) successfully finished
+2024-11-23 11:15:11,486 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper remote get-url origin) successfully finished
+2024-11-23 11:15:12,304 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper fetch origin --prune --progress) successfully finished
+2024-11-23 11:15:12,320 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-11-23 11:15:12,332 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper rev-parse HEAD) successfully finished
+2024-11-23 11:15:12,485 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-11-23 11:15:12,497 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper rev-parse origin/master) successfully finished
+2024-11-23 11:15:12,598 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-11-23 11:15:12,616 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper rev-list HEAD..f2e69a3703f97725fb0db626ff592a223e22b3a2 --count) successfully finished
+2024-11-23 11:15:12,634 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper log d6494ffed57c108c9ab8345a1e3c6bc38557bc0a..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2024-11-23 11:15:12,755 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2024-11-23 11:15:12,756 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/pi/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper
+Recovery URL: https://github.com/Klipper3d/klipper
+Current Commit SHA: d6494ffed57c108c9ab8345a1e3c6bc38557bc0a
+Upstream Commit SHA: f2e69a3703f97725fb0db626ff592a223e22b3a2
+Current Version: v0.12.0-378-gd6494ffe
+Upstream Version: v0.12.0-379-gf2e69a37
+Rollback Commit: 9bd0d4757696375e946a1410fcc8036d2670ae30
+Rollback Branch: master
+Rollback Version: v0.12.0-377-g9bd0d475
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 1
+Diverged: False
+Pinned Commit: None
+Repo Warnings:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+2024-11-23 11:15:12,756 [base_deploy.py:log_info()] - Git Repo klipper: Channel: dev
+2024-11-23 11:15:12,756 [base_deploy.py:log_info()] - Git Repo klipper: Validity check for git repo passed
+2024-11-23 11:15:13,048 [base_deploy.py:log_info()] - Web Client mainsail: Detected
+Repo: mainsail-crew/mainsail
+Channel: stable
+Path: /home/pi/mainsail
+Local Version: v2.12.0
+Remote Version: v2.12.0
+Valid: True
+Fallback Detected: False
+Pre-release: False
+Download Url: https://github.com/mainsail-crew/mainsail/releases/download/v2.12.0/mainsail.zip
+Download Size: 2545249
+Content Type: application/zip
+Rollback Version: v2.11.2
+Rollback Repo: mainsail-crew/mainsail
+2024-11-23 11:15:13,126 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen status --porcelain -b) successfully finished
+2024-11-23 11:15:13,141 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen branch --list --no-color) successfully finished
+2024-11-23 11:15:13,168 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen remote get-url origin) successfully finished
+2024-11-23 11:15:13,698 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen fetch origin --prune --progress) successfully finished
+2024-11-23 11:15:13,711 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-11-23 11:15:13,724 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen rev-parse HEAD) successfully finished
+2024-11-23 11:15:13,761 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-11-23 11:15:13,774 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen rev-parse origin/master) successfully finished
+2024-11-23 11:15:13,808 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-11-23 11:15:13,821 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/KlipperScreen rev-list HEAD..8e4f859b09e5f1f739c132ff6f98f653aafab0e5 --count) successfully finished
+2024-11-23 11:15:13,822 [git_deploy.py:log_repo_info()] - Git Repo KlipperScreen Detected:
+Owner: jordanruthe
+Repository Name: KlipperScreen
+Path: /home/pi/KlipperScreen
+Remote: origin
+Branch: master
+Remote URL: https://github.com/jordanruthe/KlipperScreen.git
+Recovery URL: https://github.com/jordanruthe/KlipperScreen.git
+Current Commit SHA: 8e4f859b09e5f1f739c132ff6f98f653aafab0e5
+Upstream Commit SHA: 8e4f859b09e5f1f739c132ff6f98f653aafab0e5
+Current Version: v0.4.5-14-g8e4f859b
+Upstream Version: v0.4.5-14-g8e4f859b
+Rollback Commit: 7127b5d624cbc7395c14e5f94fd30d33579a35e9
+Rollback Branch: master
+Rollback Version: v0.4.5-3-g7127b5d6
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:15:13,822 [base_deploy.py:log_info()] - Git Repo KlipperScreen: Channel: dev
+2024-11-23 11:15:13,822 [base_deploy.py:log_info()] - Git Repo KlipperScreen: Validity check for git repo passed
+2024-11-23 11:15:13,992 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest status --porcelain -b) successfully finished
+2024-11-23 11:15:14,006 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest branch --list --no-color) successfully finished
+2024-11-23 11:15:14,034 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest remote get-url origin) successfully finished
+2024-11-23 11:15:14,554 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest fetch origin --prune --progress) successfully finished
+2024-11-23 11:15:14,568 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-11-23 11:15:14,580 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest rev-parse HEAD) successfully finished
+2024-11-23 11:15:14,602 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-11-23 11:15:14,615 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest rev-parse origin/master) successfully finished
+2024-11-23 11:15:14,640 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-11-23 11:15:14,654 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/crowsnest rev-list HEAD..d75a3aeb018384e59d03518754f6148c98894ed9 --count) successfully finished
+2024-11-23 11:15:14,655 [git_deploy.py:log_repo_info()] - Git Repo crowsnest Detected:
+Owner: mainsail-crew
+Repository Name: crowsnest
+Path: /home/pi/crowsnest
+Remote: origin
+Branch: master
+Remote URL: https://github.com/mainsail-crew/crowsnest.git
+Recovery URL: https://github.com/mainsail-crew/crowsnest.git
+Current Commit SHA: d75a3aeb018384e59d03518754f6148c98894ed9
+Upstream Commit SHA: d75a3aeb018384e59d03518754f6148c98894ed9
+Current Version: v4.1.9-1-gd75a3aeb
+Upstream Version: v4.1.9-1-gd75a3aeb
+Rollback Commit: 6ac4711e17f6f7c51998d1f928166fdaee383bf7
+Rollback Branch: master
+Rollback Version: v4.1.8-1-g6ac4711e
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:15:14,655 [base_deploy.py:log_info()] - Git Repo crowsnest: Channel: dev
+2024-11-23 11:15:14,656 [base_deploy.py:log_info()] - Git Repo crowsnest: Validity check for git repo passed
+2024-11-23 11:15:14,708 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot status --porcelain -b) successfully finished
+2024-11-23 11:15:14,721 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot branch --list --no-color) successfully finished
+2024-11-23 11:15:14,745 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot remote get-url origin) successfully finished
+2024-11-23 11:15:15,323 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot fetch origin --prune --progress) successfully finished
+2024-11-23 11:15:15,339 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-11-23 11:15:15,353 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot rev-parse HEAD) successfully finished
+2024-11-23 11:15:15,369 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-11-23 11:15:15,382 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot rev-parse origin/master) successfully finished
+2024-11-23 11:15:15,399 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-11-23 11:15:15,414 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/moonraker-telegram-bot rev-list HEAD..b9b47003e13b8a23af696594aac8ba53c777f5a7 --count) successfully finished
+2024-11-23 11:15:15,415 [git_deploy.py:log_repo_info()] - Git Repo moonraker-telegram-bot Detected:
+Owner: nlef
+Repository Name: moonraker-telegram-bot
+Path: /home/pi/moonraker-telegram-bot
+Remote: origin
+Branch: master
+Remote URL: https://github.com/nlef/moonraker-telegram-bot.git
+Recovery URL: https://github.com/nlef/moonraker-telegram-bot.git
+Current Commit SHA: b9b47003e13b8a23af696594aac8ba53c777f5a7
+Upstream Commit SHA: b9b47003e13b8a23af696594aac8ba53c777f5a7
+Current Version: v1.5-0-gb9b47003
+Upstream Version: v1.5-0-gb9b47003
+Rollback Commit: b9b47003e13b8a23af696594aac8ba53c777f5a7
+Rollback Branch: master
+Rollback Version: v1.5-0-gb9b4700
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:15:15,415 [base_deploy.py:log_info()] - Git Repo moonraker-telegram-bot: Channel: dev
+2024-11-23 11:15:15,416 [base_deploy.py:log_info()] - Git Repo moonraker-telegram-bot: Validity check for git repo passed
+2024-11-23 11:15:15,455 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup status --porcelain -b) successfully finished
+2024-11-23 11:15:15,471 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup branch --list --no-color) successfully finished
+2024-11-23 11:15:15,499 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup remote get-url origin) successfully finished
+2024-11-23 11:15:15,976 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup fetch origin --prune --progress) successfully finished
+2024-11-23 11:15:15,990 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup merge-base --is-ancestor HEAD origin/main) successfully finished
+2024-11-23 11:15:16,003 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup rev-parse HEAD) successfully finished
+2024-11-23 11:15:16,017 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-11-23 11:15:16,029 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup rev-parse origin/main) successfully finished
+2024-11-23 11:15:16,043 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup describe origin/main --always --tags --long --abbrev=8) successfully finished
+2024-11-23 11:15:16,057 [shell_command.py:_check_proc_success()] - Command (git -C /home/pi/klipper-backup rev-list HEAD..1ccd26ad624ce5e50b8554b7ac9ebbae3d922712 --count) successfully finished
+2024-11-23 11:15:16,058 [git_deploy.py:log_repo_info()] - Git Repo klipper-backup Detected:
+Owner: Staubgeborener
+Repository Name: klipper-backup
+Path: /home/pi/klipper-backup
+Remote: origin
+Branch: main
+Remote URL: https://github.com/Staubgeborener/klipper-backup.git
+Recovery URL: https://github.com/Staubgeborener/klipper-backup.git
+Current Commit SHA: 1ccd26ad624ce5e50b8554b7ac9ebbae3d922712
+Upstream Commit SHA: 1ccd26ad624ce5e50b8554b7ac9ebbae3d922712
+Current Version: v1.3.2-0-g1ccd26ad
+Upstream Version: v1.3.2-0-g1ccd26ad
+Rollback Commit: 1ccd26ad624ce5e50b8554b7ac9ebbae3d922712
+Rollback Branch: main
+Rollback Version: v1.3.2-0-g1ccd26ad
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:15:16,058 [base_deploy.py:log_info()] - Git Repo klipper-backup: Channel: dev
+2024-11-23 11:15:16,058 [base_deploy.py:log_info()] - Git Repo klipper-backup: Validity check for git repo passed
+2024-11-23 11:18:52,153 [server.py:_handle_term_signal()] - Exiting with signal SIGTERM
+2024-11-23 11:18:52,155 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-23 11:18:52,162 [websockets.py:on_close()] - Websocket Closed: ID: 4079916320 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.27
+2024-11-23 11:18:52,271 [websockets.py:write_to_socket()] - Websocket closed while writing: 4070911616
+2024-11-23 11:18:52,271 [websockets.py:write_to_socket()] - Websocket closed while writing: 4070910608
+2024-11-23 11:18:52,271 [websockets.py:write_to_socket()] - Websocket closed while writing: 4079926768
+2024-11-23 11:18:52,272 [websockets.py:write_to_socket()] - Websocket closed while writing: 4070936336
+2024-11-23 11:18:52,316 [websockets.py:on_close()] - Websocket Closed: ID: 4079926768 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 2.56
+2024-11-23 11:18:52,317 [websockets.py:on_close()] - Websocket Closed: ID: 4070936336 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 2.50
+2024-11-23 11:18:52,416 [websockets.py:on_close()] - Websocket Closed: ID: 4070911616 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 7.93
+2024-11-23 11:18:52,419 [websockets.py:on_close()] - Websocket Closed: ID: 4070910608 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 7.49
+2024-11-23 11:18:52,542 [server.py:main()] - Server Shutdown
+-------------------- Log Start | Sat Nov 23 17:19:11 2024 --------------------
+platform: Linux-6.1.21-v8+-aarch64-with-glibc2.31
+data_path: /home/pi/Ender5_data
+is_default_data_path: False
+config_file: /home/pi/Ender5_data/config/moonraker.conf
+backup_config: /home/pi/Ender5_data/config/.moonraker.conf.bkp
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: 7b1425501a69432ca838d218c97a15b3
+unix_socket_path: /home/pi/Ender5_data/comms/moonraker.sock
+software_version: v0.9.3-3-gccfe32f
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/pi/Ender5_data/logs/moonraker.log
+python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+launch_args: /home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/moonraker.py -d /home/pi/Ender5_data
+msgspec_enabled: False
+uvloop_enabled: False
+2024-11-23 11:19:11,885 [confighelper.py:read_file()] - Configuration File '/home/pi/Ender5_data/config/moonraker.conf' parsed, total size: 6228 B
+2024-11-23 11:19:11,885 [server.py:add_log_rollover_item()] - 
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7126
+klippy_uds_address = /home/pi/Ender5_data/comms/klippy.sock
+
+[file_manager]
+enable_object_processing = True
+
+[authorization]
+trusted_clients = 
+	127.0.0.1
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+	192.168.1.224
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+	*://Ender5
+	*://Ender5.local
+	*://192.168.1.224
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+refresh_interval = 168
+
+[update_manager mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager KlipperScreen]
+type = git_repo
+path = ~/KlipperScreen
+origin = https://github.com/jordanruthe/KlipperScreen.git
+env = ~/.KlipperScreen-env/bin/python
+requirements = scripts/KlipperScreen-requirements.txt
+install_script = scripts/KlipperScreen-install.sh
+managed_services = KlipperScreen
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+install_script = tools/install.sh
+
+[update_manager client moonraker-telegram-bot]
+type = git_repo
+path = ~/moonraker-telegram-bot
+origin = https://github.com/nlef/moonraker-telegram-bot.git
+env = ~/moonraker-telegram-bot-env/bin/python
+requirements = scripts/requirements.txt
+install_script = scripts/install.sh
+
+[update_manager klipper-backup]
+type = git_repo
+path = ~/klipper-backup
+origin = https://github.com/Staubgeborener/klipper-backup.git
+managed_services = moonraker
+primary_branch = main
+
+[power light_strip]
+type = gpio
+pin = gpiochip0/gpio16
+initial_state = off
+
+#################################################################
+All Configuration Files:
+/home/pi/Ender5_data/config/moonraker.conf
+#################################################################
+2024-11-23 11:19:12,349 [server.py:load_component()] - Component (secrets) loaded
+2024-11-23 11:19:12,370 [server.py:load_component()] - Component (template) loaded
+2024-11-23 11:19:12,380 [server.py:load_component()] - Component (klippy_connection) loaded
+2024-11-23 11:19:14,290 [server.py:load_component()] - Component (application) loaded
+2024-11-23 11:19:14,359 [server.py:load_component()] - Component (websockets) loaded
+2024-11-23 11:19:14,499 [server.py:add_log_rollover_item()] - Loading Sqlite database provider. Sqlite Version: 3.34.1
+2024-11-23 11:19:14,556 [server.py:add_log_rollover_item()] - Unsafe Shutdown Count: 62
+2024-11-23 11:19:14,586 [server.py:load_component()] - Component (database) loaded
+2024-11-23 11:19:14,775 [server.py:load_component()] - Component (dbus_manager) loaded
+2024-11-23 11:19:14,853 [file_manager.py:__init__()] - Using File System Observer: inotify
+2024-11-23 11:19:14,971 [server.py:load_component()] - Component (file_manager) loaded
+2024-11-23 11:19:15,059 [database.py:register_table()] - Found registered table authorized_users
+2024-11-23 11:19:15,066 [authorization.py:__init__()] - Authorization Configuration Loaded
+Trusted Clients:
+127.0.0.1
+192.168.1.224
+10.0.0.0/8
+127.0.0.0/8
+169.254.0.0/16
+172.16.0.0/12
+192.168.0.0/16
+fe80::/10
+::1/128
+CORS Domains:
+.*\.lan
+.*\.local
+.*://localhost
+.*://localhost:.*
+.*://my\.mainsail\.xyz
+.*://app\.fluidd\.xyz
+.*://Ender5
+.*://Ender5\.local
+.*://192\.168\.1\.224
+2024-11-23 11:19:15,094 [server.py:load_component()] - Component (authorization) loaded
+2024-11-23 11:19:15,110 [server.py:load_component()] - Component (klippy_apis) loaded
+2024-11-23 11:19:15,768 [server.py:add_log_rollover_item()] - 
+System Info:
+
+***python***
+  version: (3, 9, 2, 'final', 0)
+  version_string: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 32bit
+  processor: aarch64
+  cpu_desc: 
+  serial_number: 100000004453ee49
+  hardware_desc: BCM2835
+  model: Raspberry Pi 4 Model B Rev 1.4
+  total_memory: 3705528
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 6f
+  manufacturer: Unknown
+  oem_id: 0303
+  product_name: CBADS
+  product_revision: 1.0
+  serial_number: aa0005c6
+  manufacturer_date: 10/2022
+  capacity: 29.1 GiB
+  total_bytes: 31275876352
+
+***distribution***
+  name: Raspbian GNU/Linux 11 (bullseye)
+  id: raspbian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: debian
+  codename: bullseye
+  release_info: {}
+  kernel_version: 6.1.21-v8+
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+2024-11-23 11:19:15,786 [server.py:load_component()] - Component (shell_command) loaded
+2024-11-23 11:19:15,787 [machine.py:__init__()] - Using System Provider: systemd_dbus
+2024-11-23 11:19:15,957 [server.py:add_log_rollover_item()] - Found libcamera Python module, version: v0.0.5+83-bde9b04f
+2024-11-23 11:19:15,958 [server.py:load_component()] - Component (machine) loaded
+2024-11-23 11:19:16,009 [server.py:load_component()] - Component (data_store) loaded
+2024-11-23 11:19:16,028 [proc_stats.py:__init__()] - Detected 'vcgencmd', throttle checking enabled
+2024-11-23 11:19:16,029 [server.py:load_component()] - Component (proc_stats) loaded
+2024-11-23 11:19:16,051 [server.py:load_component()] - Component (job_state) loaded
+2024-11-23 11:19:16,090 [server.py:load_component()] - Component (job_queue) loaded
+2024-11-23 11:19:16,107 [database.py:register_table()] - Found registered table job_history
+2024-11-23 11:19:16,110 [database.py:register_table()] - Found registered table job_totals
+2024-11-23 11:19:16,115 [server.py:load_component()] - Component (history) loaded
+2024-11-23 11:19:16,199 [server.py:load_component()] - Component (http_client) loaded
+2024-11-23 11:19:16,221 [server.py:load_component()] - Component (announcements) loaded
+2024-11-23 11:19:16,249 [server.py:load_component()] - Component (webcam) loaded
+2024-11-23 11:19:16,291 [server.py:load_component()] - Component (extensions) loaded
+2024-11-23 11:19:16,305 [power.py:__init__()] - Power component loading devices: ['power light_strip']
+2024-11-23 11:19:16,525 [server.py:load_component()] - Component (gpio) loaded
+2024-11-23 11:19:16,530 [server.py:load_component()] - Component (power) loaded
+2024-11-23 11:19:16,539 [server.py:load_component()] - Component (octoprint_compat) loaded
+2024-11-23 11:19:16,606 [base_deploy.py:log_info()] - Git Repo moonraker: Detected virtualenv: /home/pi/moonraker-env
+2024-11-23 11:19:16,611 [base_deploy.py:log_info()] - Git Repo klipper: Detected virtualenv: /home/pi/klippy-env
+2024-11-23 11:19:16,618 [base_deploy.py:log_info()] - Git Repo KlipperScreen: Option 'env' is deprecated, use 'virtualenv' instead.
+2024-11-23 11:19:16,620 [base_deploy.py:log_info()] - Git Repo KlipperScreen: Detected virtualenv: /home/pi/.KlipperScreen-env
+2024-11-23 11:19:16,628 [base_deploy.py:log_info()] - Git Repo moonraker-telegram-bot: Option 'env' is deprecated, use 'virtualenv' instead.
+2024-11-23 11:19:16,630 [base_deploy.py:log_info()] - Git Repo moonraker-telegram-bot: Detected virtualenv: /home/pi/moonraker-telegram-bot-env
+2024-11-23 11:19:16,641 [server.py:load_component()] - Component (update_manager) loaded
+2024-11-23 11:19:16,642 [server.py:_initialize_component()] - Performing Component Post Init: [database]
+2024-11-23 11:19:16,848 [server.py:_initialize_component()] - Performing Component Post Init: [dbus_manager]
+2024-11-23 11:19:17,259 [server.py:_initialize_component()] - Performing Component Post Init: [file_manager]
+2024-11-23 11:19:17,665 [server.py:_initialize_component()] - Performing Component Post Init: [authorization]
+2024-11-23 11:19:17,699 [server.py:_initialize_component()] - Performing Component Post Init: [machine]
+2024-11-23 11:19:17,702 [machine.py:validation_init()] - Installation version in database up to date
+2024-11-23 11:19:18,174 [shell_command.py:pipe_data_received()] - INFO:metadata:Object Processing is enabled
+
+2024-11-23 11:19:18,486 [machine.py:check_virt_status()] - No Virtualization Detected
+2024-11-23 11:19:20,351 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2024-11-23 11:19:20,353 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.1.224
+2024-11-23 11:19:20,396 [machine.py:extract_service_info()] - Detected alternate unit name for moonraker: moonraker-Ender5.service
+2024-11-23 11:19:20,434 [server.py:add_log_rollover_item()] - 
+Systemd unit moonraker-Ender5.service:
+unit_name: moonraker-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', '-.mount', 'network-online.target', 'system.slice']
+**After=['sysinit.target', '-.mount', 'systemd-journald.socket', 'network-online.target', 'basic.target', 'system.slice']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/moonraker.env
+**ExecStart=/home/pi/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/pi/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-Ender5.service
+**Description=API Server for Klipper SV1 Ender5
+**User=pi
+2024-11-23 11:19:20,434 [server.py:_initialize_component()] - Performing Component Post Init: [proc_stats]
+2024-11-23 11:19:20,435 [server.py:_initialize_component()] - Performing Component Post Init: [history]
+2024-11-23 11:19:20,587 [server.py:_initialize_component()] - Performing Component Post Init: [announcements]
+2024-11-23 11:19:20,589 [shell_command.py:pipe_data_received()] - INFO:metadata:File 'Hogwarts_-_part_1.v2 - Copy - Copy.gcode' currently supports cancellation, processing aborted
+
+2024-11-23 11:19:20,593 [server.py:_initialize_component()] - Performing Component Post Init: [webcam]
+2024-11-23 11:19:20,593 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.1.224
+2024-11-23 11:19:20,597 [server.py:_initialize_component()] - Performing Component Post Init: [klippy_connection]
+2024-11-23 11:19:20,597 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-Ender5.service:
+unit_name: klipper-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', 'sysinit.target', '-.mount']
+**After=['system.slice', 'basic.target', '-.mount', 'systemd-journald.socket', 'sysinit.target', 'network-online.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/klipper.env
+**ExecStart=/home/pi/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/pi/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender5.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=pi
+2024-11-23 11:19:20,597 [server.py:_initialize_component()] - Performing Component Post Init: [power]
+2024-11-23 11:19:20,598 [server.py:_initialize_component()] - Performing Component Post Init: [update_manager]
+2024-11-23 11:19:20,619 [server.py:add_log_rollover_item()] - Multiple instances of Moonraker have the update manager enabled.
+moonraker-Ender3:f3b73e6f93a14a268ea6fcddf0c3f001:830
+moonraker-Ender5:7b1425501a69432ca838d218c97a15b3:846
+2024-11-23 11:19:20,717 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/Ender5_data/gcodes -f "Hogwarts_-_part_1.v2 - Copy - Copy.gcode" --check-objects) successfully finished
+2024-11-23 11:19:22,800 [base_deploy.py:log_info()] - PackageDeploy: PackageKit Provider Configured
+2024-11-23 11:19:22,805 [base_deploy.py:log_info()] - Git Repo moonraker: Stored pip version: 24.0
+2024-11-23 11:19:22,808 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/pi/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: ccfe32f2368a5ff6c2497478319909daeeeb8edf
+Upstream Commit SHA: ccfe32f2368a5ff6c2497478319909daeeeb8edf
+Current Version: v0.9.3-3-gccfe32f2
+Upstream Version: v0.9.3-3-gccfe32f2
+Rollback Commit: 4e00a0760e756872b2fbb23a82b88dbceb383cf4
+Rollback Branch: master
+Rollback Version: v0.9.3-1-g4e00a076
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:19:22,814 [base_deploy.py:log_info()] - Git Repo klipper: Stored pip version: 23.3.2
+2024-11-23 11:19:22,816 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/pi/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper
+Recovery URL: https://github.com/Klipper3d/klipper
+Current Commit SHA: d6494ffed57c108c9ab8345a1e3c6bc38557bc0a
+Upstream Commit SHA: f2e69a3703f97725fb0db626ff592a223e22b3a2
+Current Version: v0.12.0-378-gd6494ffe
+Upstream Version: v0.12.0-379-gf2e69a37
+Rollback Commit: 9bd0d4757696375e946a1410fcc8036d2670ae30
+Rollback Branch: master
+Rollback Version: v0.12.0-377-g9bd0d475
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 1
+Diverged: False
+Pinned Commit: None
+Repo Warnings:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+2024-11-23 11:19:22,840 [base_deploy.py:log_info()] - Web Client mainsail: Detected
+Repo: mainsail-crew/mainsail
+Channel: stable
+Path: /home/pi/mainsail
+Local Version: v2.12.0
+Remote Version: v2.12.0
+Valid: True
+Fallback Detected: False
+Pre-release: False
+Download Url: https://github.com/mainsail-crew/mainsail/releases/download/v2.12.0/mainsail.zip
+Download Size: 2545249
+Content Type: application/zip
+Rollback Version: v2.11.2
+Rollback Repo: mainsail-crew/mainsail
+2024-11-23 11:19:22,841 [base_deploy.py:log_info()] - Git Repo KlipperScreen: Stored pip version: 24.0
+2024-11-23 11:19:22,843 [git_deploy.py:log_repo_info()] - Git Repo KlipperScreen Detected:
+Owner: jordanruthe
+Repository Name: KlipperScreen
+Path: /home/pi/KlipperScreen
+Remote: origin
+Branch: master
+Remote URL: https://github.com/jordanruthe/KlipperScreen.git
+Recovery URL: https://github.com/jordanruthe/KlipperScreen.git
+Current Commit SHA: 8e4f859b09e5f1f739c132ff6f98f653aafab0e5
+Upstream Commit SHA: 8e4f859b09e5f1f739c132ff6f98f653aafab0e5
+Current Version: v0.4.5-14-g8e4f859b
+Upstream Version: v0.4.5-14-g8e4f859b
+Rollback Commit: 7127b5d624cbc7395c14e5f94fd30d33579a35e9
+Rollback Branch: master
+Rollback Version: v0.4.5-3-g7127b5d6
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:19:22,846 [git_deploy.py:log_repo_info()] - Git Repo crowsnest Detected:
+Owner: mainsail-crew
+Repository Name: crowsnest
+Path: /home/pi/crowsnest
+Remote: origin
+Branch: master
+Remote URL: https://github.com/mainsail-crew/crowsnest.git
+Recovery URL: https://github.com/mainsail-crew/crowsnest.git
+Current Commit SHA: d75a3aeb018384e59d03518754f6148c98894ed9
+Upstream Commit SHA: d75a3aeb018384e59d03518754f6148c98894ed9
+Current Version: v4.1.9-1-gd75a3aeb
+Upstream Version: v4.1.9-1-gd75a3aeb
+Rollback Commit: 6ac4711e17f6f7c51998d1f928166fdaee383bf7
+Rollback Branch: master
+Rollback Version: v4.1.8-1-g6ac4711e
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:19:22,862 [git_deploy.py:log_repo_info()] - Git Repo moonraker-telegram-bot Detected:
+Owner: nlef
+Repository Name: moonraker-telegram-bot
+Path: /home/pi/moonraker-telegram-bot
+Remote: origin
+Branch: master
+Remote URL: https://github.com/nlef/moonraker-telegram-bot.git
+Recovery URL: https://github.com/nlef/moonraker-telegram-bot.git
+Current Commit SHA: b9b47003e13b8a23af696594aac8ba53c777f5a7
+Upstream Commit SHA: b9b47003e13b8a23af696594aac8ba53c777f5a7
+Current Version: v1.5-0-gb9b47003
+Upstream Version: v1.5-0-gb9b47003
+Rollback Commit: b9b47003e13b8a23af696594aac8ba53c777f5a7
+Rollback Branch: master
+Rollback Version: v1.5-0-gb9b4700
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:19:22,864 [git_deploy.py:log_repo_info()] - Git Repo klipper-backup Detected:
+Owner: Staubgeborener
+Repository Name: klipper-backup
+Path: /home/pi/klipper-backup
+Remote: origin
+Branch: main
+Remote URL: https://github.com/Staubgeborener/klipper-backup.git
+Recovery URL: https://github.com/Staubgeborener/klipper-backup.git
+Current Commit SHA: 1ccd26ad624ce5e50b8554b7ac9ebbae3d922712
+Upstream Commit SHA: 1ccd26ad624ce5e50b8554b7ac9ebbae3d922712
+Current Version: v1.3.2-0-g1ccd26ad
+Upstream Version: v1.3.2-0-g1ccd26ad
+Rollback Commit: 1ccd26ad624ce5e50b8554b7ac9ebbae3d922712
+Rollback Branch: main
+Rollback Version: v1.3.2-0-g1ccd26ad
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Pinned Commit: None
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - PackageKit: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 48 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Git Repo moonraker: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 48 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Git Repo klipper: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 50 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Web Client mainsail: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 50 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Git Repo KlipperScreen: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 51 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Git Repo crowsnest: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 52 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Git Repo moonraker-telegram-bot: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 53 Seconds
+2024-11-23 11:19:22,865 [base_deploy.py:log_info()] - Git Repo klipper-backup: Next refresh in: 6 Days, 23 Hours, 55 Minutes, 53 Seconds
+2024-11-23 11:19:22,867 [extensions.py:start_unix_server()] - Creating Unix Domain Socket at '/home/pi/Ender5_data/comms/moonraker.sock'
+2024-11-23 11:19:22,869 [server.py:start_server()] - Starting Moonraker on (0.0.0.0, 7126), Hostname: raspberrypi
+2024-11-23 11:19:22,870 [application.py:listen()] - SSL Certificate/Key not configured, aborting HTTPS Server startup
+2024-11-23 11:19:22,940 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2024-11-23 11:19:22,944 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 6.30ms
+2024-11-23 11:19:22,945 [websockets.py:open()] - Websocket Opened: ID: 4087553160, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:19:22,953 [websockets.py:_handle_identify()] - Websocket 4087553160 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-23 11:19:23,063 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.15
+2024-11-23 11:19:23,065 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 2.82ms
+2024-11-23 11:19:23,065 [websockets.py:open()] - Websocket Opened: ID: 4087553808, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:19:23,079 [websockets.py:_handle_identify()] - Websocket 4087553808 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-23 11:19:23,123 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-23 11:19:23,218 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 4.99ms
+2024-11-23 11:19:23,219 [websockets.py:open()] - Websocket Opened: ID: 4078317160, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:19:23,221 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-23 11:19:23,250 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.objects.list, Code: -32601, Message: Method not found
+2024-11-23 11:19:23,251 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:19:23,385 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 5.29ms
+2024-11-23 11:19:23,386 [websockets.py:open()] - Websocket Opened: ID: 4076857856, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:19:23,434 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-Ender5.service:
+unit_name: klipper-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'sysinit.target']
+**After=['sysinit.target', '-.mount', 'network-online.target', 'basic.target', 'systemd-journald.socket', 'system.slice']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/klipper.env
+**ExecStart=/home/pi/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/pi/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender5.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=pi
+2024-11-23 11:19:23,440 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.objects.list, Code: -32601, Message: Method not found
+2024-11-23 11:19:23,443 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:19:23,687 [server.py:add_log_rollover_item()] - Klipper Version: v0.12.0-378-gd6494ffed-dirty
+2024-11-23 11:19:23,705 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-23 11:19:23,706 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-23 11:19:23,709 [klippy_connection.py:_check_ready()] - 
+Can not update MCU 'mcu' config as it is shutdown
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
+2024-11-23 11:19:45,042 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-23 11:19:46,305 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-23 11:19:46,344 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-23 11:19:49,511 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-23 11:19:49,513 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-23 11:19:49,763 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-23 11:19:50,022 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-23 11:19:50,063 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:19:50,188 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:19:50,482 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.224
+2024-11-23 11:19:50,485 [application.py:log_request()] - 101 GET /websocket?token=PSHPZ5GNMVVSL22XA4HFZRAKWVLXTWCL (192.168.1.224) [_TRUSTED_USER_] 3.50ms
+2024-11-23 11:19:50,485 [websockets.py:open()] - Websocket Opened: ID: 4068015120, Proxied: False, User Agent: , Host Name: 192.168.1.224
+2024-11-23 11:19:51,023 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-23 11:22:21,242 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Hogwarts_-_part_1.v2 - Copy - Copy.gcode
+2024-11-23 11:22:21,448 [job_state.py:_status_update()] - Job Started: Hogwarts_-_part_1.v2 - Copy - Copy.gcode
+2024-11-23 11:29:26,233 [websockets.py:on_close()] - Websocket Closed: ID: 4087553808 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.14
+2024-11-23 11:29:27,119 [websockets.py:on_close()] - Websocket Closed: ID: 4076857856 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.72
+2024-11-23 11:29:27,166 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 1.99ms
+2024-11-23 11:29:27,166 [websockets.py:open()] - Websocket Opened: ID: 4067664416, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:29:27,232 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:29:27,971 [websockets.py:on_close()] - Websocket Closed: ID: 4067664416 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.81
+2024-11-23 11:29:28,007 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 1.81ms
+2024-11-23 11:29:28,008 [websockets.py:open()] - Websocket Opened: ID: 4078418360, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:29:28,092 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:32:01,673 [websockets.py:on_close()] - Websocket Closed: ID: 4078418360 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.66
+2024-11-23 11:32:01,698 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 2.68ms
+2024-11-23 11:32:01,699 [websockets.py:open()] - Websocket Opened: ID: 4087552080, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:32:01,904 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:32:06,958 [websockets.py:on_close()] - Websocket Closed: ID: 4087552080 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.26
+2024-11-23 11:32:07,014 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 1.90ms
+2024-11-23 11:32:07,014 [websockets.py:open()] - Websocket Opened: ID: 4076739048, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:32:08,116 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:32:11,902 [websockets.py:on_close()] - Websocket Closed: ID: 4076739048 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 4.89
+2024-11-23 11:32:29,650 [websockets.py:on_close()] - Websocket Closed: ID: 4087553160 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.70
+2024-11-23 11:32:30,117 [websockets.py:on_close()] - Websocket Closed: ID: 4078317160 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.90
+2024-11-23 11:32:30,139 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.88ms
+2024-11-23 11:32:30,140 [websockets.py:open()] - Websocket Opened: ID: 4076666280, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:32:30,167 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:32:41,420 [websockets.py:on_close()] - Websocket Closed: ID: 4076666280 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.28
+2024-11-23 11:32:41,436 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.97ms
+2024-11-23 11:32:41,436 [websockets.py:open()] - Websocket Opened: ID: 4087540752, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:32:41,467 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:32:43,539 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.49ms
+2024-11-23 11:32:43,539 [websockets.py:open()] - Websocket Opened: ID: 4087540944, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:32:43,544 [websockets.py:_handle_identify()] - Websocket 4087540944 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-23 11:32:44,158 [websockets.py:on_close()] - Websocket Closed: ID: 4087540752 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.72
+2024-11-23 11:32:44,288 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 129.19ms
+2024-11-23 11:32:44,288 [websockets.py:open()] - Websocket Opened: ID: 4078416008, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:32:44,339 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 11:47:32,860 [websockets.py:on_close()] - Websocket Closed: ID: 4087540944 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.32
+2024-11-23 11:47:33,303 [websockets.py:on_close()] - Websocket Closed: ID: 4078416008 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.01
+2024-11-23 11:47:33,324 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.03ms
+2024-11-23 11:47:33,325 [websockets.py:open()] - Websocket Opened: ID: 4087551864, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-23 11:47:33,338 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-23 12:03:14,280 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-11-23 12:03:14,285 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1732384964.538263, Usage: 1.23%, Memory: 40380 kB
+System Time: 1732384965.539134, Usage: 1.25%, Memory: 40380 kB
+System Time: 1732384966.540760, Usage: 1.35%, Memory: 40380 kB
+System Time: 1732384967.542551, Usage: 1.46%, Memory: 40380 kB
+System Time: 1732384968.542648, Usage: 4.21%, Memory: 40380 kB
+System Time: 1732384969.543370, Usage: 3.78%, Memory: 40380 kB
+System Time: 1732384970.545147, Usage: 2.58%, Memory: 40380 kB
+System Time: 1732384971.545961, Usage: 1.24%, Memory: 40380 kB
+System Time: 1732384972.547453, Usage: 1.37%, Memory: 40380 kB
+System Time: 1732384973.549549, Usage: 1.73%, Memory: 40380 kB
+System Time: 1732384974.549048, Usage: 1.76%, Memory: 40380 kB
+System Time: 1732384975.549508, Usage: 1.11%, Memory: 40380 kB
+System Time: 1732384976.551168, Usage: 1.26%, Memory: 40380 kB
+System Time: 1732384977.556756, Usage: 2.68%, Memory: 40380 kB
+System Time: 1732384978.556463, Usage: 4.41%, Memory: 40380 kB
+System Time: 1732384979.560559, Usage: 1.79%, Memory: 40380 kB
+System Time: 1732384980.557984, Usage: 3.48%, Memory: 40380 kB
+System Time: 1732384981.558896, Usage: 1.19%, Memory: 40380 kB
+System Time: 1732384982.561768, Usage: 1.6%, Memory: 40380 kB
+System Time: 1732384983.560448, Usage: 1.49%, Memory: 40380 kB
+System Time: 1732384984.561286, Usage: 1.2%, Memory: 40380 kB
+System Time: 1732384985.562944, Usage: 1.67%, Memory: 40380 kB
+System Time: 1732384986.564092, Usage: 1.54%, Memory: 40380 kB
+System Time: 1732384987.565763, Usage: 1.49%, Memory: 40380 kB
+System Time: 1732384988.565704, Usage: 1.36%, Memory: 40380 kB
+System Time: 1732384989.567158, Usage: 1.18%, Memory: 40380 kB
+System Time: 1732384990.570991, Usage: 2.66%, Memory: 40380 kB
+System Time: 1732384991.569945, Usage: 1.28%, Memory: 40380 kB
+System Time: 1732384992.571356, Usage: 0.59%, Memory: 40380 kB
+System Time: 1732384993.572333, Usage: 0.66%, Memory: 40380 kB
+CPU Temperature: 49.66
+2024-11-23 12:03:14,286 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
