@@ -1105,3 +1105,38 @@ socket.gaierror: [Errno -3] Temporary failure in name resolution
 2024-11-23 03:04:10,781 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
 2024-11-23 03:04:20,809 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
 2024-11-23 03:04:30,803 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2024-11-23 08:03:05,304 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-11-23 08:03:05,312 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1732370556.055855, Usage: 2.0%, Memory: 41956 kB
+System Time: 1732370557.057295, Usage: 3.94%, Memory: 41956 kB
+System Time: 1732370558.058306, Usage: 1.21%, Memory: 41956 kB
+System Time: 1732370559.059831, Usage: 0.95%, Memory: 41956 kB
+System Time: 1732370560.060158, Usage: 0.98%, Memory: 41956 kB
+System Time: 1732370561.060983, Usage: 0.99%, Memory: 41956 kB
+System Time: 1732370562.062262, Usage: 2.29%, Memory: 41956 kB
+System Time: 1732370563.063626, Usage: 1.07%, Memory: 41956 kB
+System Time: 1732370564.065944, Usage: 1.04%, Memory: 41956 kB
+System Time: 1732370565.066586, Usage: 2.16%, Memory: 41956 kB
+System Time: 1732370566.088826, Usage: 3.88%, Memory: 41956 kB
+System Time: 1732370567.090734, Usage: 1.34%, Memory: 41956 kB
+System Time: 1732370568.089252, Usage: 1.95%, Memory: 41956 kB
+System Time: 1732370569.091022, Usage: 1.03%, Memory: 41956 kB
+System Time: 1732370570.092018, Usage: 1.27%, Memory: 41956 kB
+System Time: 1732370571.094478, Usage: 1.1%, Memory: 41956 kB
+System Time: 1732370572.096719, Usage: 2.41%, Memory: 41956 kB
+System Time: 1732370573.099095, Usage: 1.22%, Memory: 41956 kB
+System Time: 1732370574.114139, Usage: 3.24%, Memory: 41956 kB
+System Time: 1732370575.112101, Usage: 1.59%, Memory: 41956 kB
+System Time: 1732370576.113234, Usage: 3.71%, Memory: 41956 kB
+System Time: 1732370577.114333, Usage: 0.99%, Memory: 41956 kB
+System Time: 1732370578.114861, Usage: 1.2%, Memory: 41956 kB
+System Time: 1732370579.117822, Usage: 1.01%, Memory: 41956 kB
+System Time: 1732370580.121339, Usage: 1.13%, Memory: 41956 kB
+System Time: 1732370581.119578, Usage: 1.32%, Memory: 41956 kB
+System Time: 1732370582.121137, Usage: 1.47%, Memory: 41956 kB
+System Time: 1732370583.122128, Usage: 0.54%, Memory: 41956 kB
+System Time: 1732370584.123424, Usage: 1.43%, Memory: 41956 kB
+System Time: 1732370585.124309, Usage: 3.28%, Memory: 41956 kB
+CPU Temperature: 44.79
+2024-11-23 08:03:05,313 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
