@@ -956,3 +956,272 @@ moonraker.components.shell_command.ShellCommandError: Error running shell comman
 2024-11-22 16:58:05,365 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 4.15ms
 2024-11-22 16:58:05,366 [websockets.py:open()] - Websocket Opened: ID: 4070127048, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
 2024-11-22 16:58:05,468 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 17:25:23,198 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2024-11-22 17:29:10,456 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2024-11-22 17:29:13,511 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:00:39,453 [application.py:prepare()] - Upload Request Received from 192.168.1.211
+Content-Type: multipart/form-data; boundary=---------------------------188983001619827712652897189728
+2024-11-22 18:00:39,465 [application.py:post()] - Processing Uploaded File: printer.cfg
+2024-11-22 18:00:39,471 [application.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 19.66ms
+2024-11-22 18:00:40,565 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-22 18:00:40,590 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 18.31ms
+2024-11-22 18:00:41,847 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-22 18:00:41,888 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-22 18:00:45,050 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-22 18:00:45,052 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-22 18:00:45,302 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-22 18:00:45,560 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-22 18:00:45,616 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:00:45,729 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:00:46,560 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-22 18:01:00,212 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:01:00,343 [job_state.py:_status_update()] - Job Started: Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:01:00,364 [application.py:log_request()] - 404 GET /server/files/metadata?filename=Hogwarts_-_part_1.v2%20-%20Copy.gcode (192.168.1.224) [_API_KEY_USER_] 12.80ms
+2024-11-22 18:01:00,371 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:01:00,412 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:01:00,534 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:01:00,657 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:04:19,400 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-11-22 18:04:19,410 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1732320230.034736, Usage: 1.7%, Memory: 41072 kB
+System Time: 1732320231.035454, Usage: 1.76%, Memory: 41072 kB
+System Time: 1732320232.036245, Usage: 1.75%, Memory: 41072 kB
+System Time: 1732320233.039750, Usage: 2.1%, Memory: 41072 kB
+System Time: 1732320234.041542, Usage: 5.69%, Memory: 41072 kB
+System Time: 1732320235.056288, Usage: 3.82%, Memory: 41072 kB
+System Time: 1732320236.041383, Usage: 8.54%, Memory: 41072 kB
+System Time: 1732320237.042002, Usage: 1.73%, Memory: 41072 kB
+System Time: 1732320238.042510, Usage: 1.73%, Memory: 41072 kB
+System Time: 1732320239.043300, Usage: 1.67%, Memory: 41072 kB
+System Time: 1732320240.044012, Usage: 1.73%, Memory: 41072 kB
+System Time: 1732320241.044918, Usage: 1.81%, Memory: 41072 kB
+System Time: 1732320242.045498, Usage: 1.99%, Memory: 41072 kB
+System Time: 1732320243.046938, Usage: 1.71%, Memory: 41072 kB
+System Time: 1732320244.047905, Usage: 2.9%, Memory: 41072 kB
+System Time: 1732320245.049488, Usage: 4.79%, Memory: 41072 kB
+System Time: 1732320246.055804, Usage: 3.75%, Memory: 41072 kB
+System Time: 1732320247.050875, Usage: 2.46%, Memory: 41072 kB
+System Time: 1732320248.051556, Usage: 1.53%, Memory: 41072 kB
+System Time: 1732320249.053193, Usage: 1.46%, Memory: 41072 kB
+System Time: 1732320250.053929, Usage: 1.54%, Memory: 41072 kB
+System Time: 1732320251.054402, Usage: 1.47%, Memory: 41072 kB
+System Time: 1732320252.058796, Usage: 2.24%, Memory: 41072 kB
+System Time: 1732320253.061147, Usage: 4.78%, Memory: 41072 kB
+System Time: 1732320254.058553, Usage: 9.82%, Memory: 41072 kB
+System Time: 1732320255.059365, Usage: 1.78%, Memory: 41072 kB
+System Time: 1732320256.061338, Usage: 3.12%, Memory: 41072 kB
+System Time: 1732320257.062344, Usage: 1.68%, Memory: 41072 kB
+System Time: 1732320258.062821, Usage: 1.51%, Memory: 41072 kB
+System Time: 1732320259.063551, Usage: 1.47%, Memory: 41072 kB
+CPU Temperature: 43.329
+2024-11-22 18:04:19,413 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
+2024-11-22 18:04:56,905 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-22 18:04:56,914 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 2.21ms
+2024-11-22 18:04:58,167 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-22 18:04:58,206 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-22 18:05:01,318 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-22 18:05:01,321 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-22 18:05:01,568 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-22 18:05:01,829 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-22 18:05:01,871 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:05:01,992 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:05:02,827 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-22 18:13:53,945 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:14:03,048 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:14:03,067 [job_state.py:_status_update()] - Job Started: Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:14:03,078 [application.py:log_request()] - 404 GET /server/files/metadata?filename=Hogwarts_-_part_1.v2%20-%20Copy.gcode (192.168.1.224) [_API_KEY_USER_] 3.57ms
+2024-11-22 18:14:03,115 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:14:03,205 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:14:06,242 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:14:06,846 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:15:48,846 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-11-22 18:15:48,857 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1732320919.753703, Usage: 2.23%, Memory: 41304 kB
+System Time: 1732320920.756768, Usage: 1.49%, Memory: 41304 kB
+System Time: 1732320921.757903, Usage: 1.49%, Memory: 41304 kB
+System Time: 1732320922.759955, Usage: 1.54%, Memory: 41304 kB
+System Time: 1732320923.760504, Usage: 1.67%, Memory: 41304 kB
+System Time: 1732320924.765038, Usage: 2.58%, Memory: 41304 kB
+System Time: 1732320925.764576, Usage: 5.75%, Memory: 41304 kB
+System Time: 1732320926.763461, Usage: 10.02%, Memory: 41304 kB
+System Time: 1732320927.764985, Usage: 1.51%, Memory: 41304 kB
+System Time: 1732320928.765102, Usage: 1.68%, Memory: 41304 kB
+System Time: 1732320929.766037, Usage: 1.53%, Memory: 41304 kB
+System Time: 1732320930.767160, Usage: 1.51%, Memory: 41304 kB
+System Time: 1732320931.768282, Usage: 1.52%, Memory: 41304 kB
+System Time: 1732320932.768783, Usage: 1.51%, Memory: 41304 kB
+System Time: 1732320933.770121, Usage: 1.63%, Memory: 41304 kB
+System Time: 1732320934.770646, Usage: 2.57%, Memory: 41304 kB
+System Time: 1732320935.772149, Usage: 4.94%, Memory: 41304 kB
+System Time: 1732320936.776624, Usage: 3.18%, Memory: 41304 kB
+System Time: 1732320937.773293, Usage: 2.83%, Memory: 41304 kB
+System Time: 1732320938.774541, Usage: 1.58%, Memory: 41304 kB
+System Time: 1732320939.775444, Usage: 1.54%, Memory: 41304 kB
+System Time: 1732320940.777215, Usage: 1.55%, Memory: 41304 kB
+System Time: 1732320941.777953, Usage: 1.55%, Memory: 41304 kB
+System Time: 1732320942.782214, Usage: 1.77%, Memory: 41304 kB
+System Time: 1732320943.780196, Usage: 5.84%, Memory: 41304 kB
+System Time: 1732320944.781312, Usage: 4.61%, Memory: 41304 kB
+System Time: 1732320945.781793, Usage: 2.01%, Memory: 41304 kB
+System Time: 1732320946.783354, Usage: 2.6%, Memory: 41304 kB
+System Time: 1732320947.783944, Usage: 1.5%, Memory: 41304 kB
+System Time: 1732320948.787669, Usage: 2.21%, Memory: 41304 kB
+CPU Temperature: 42.842
+2024-11-22 18:15:48,860 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
+2024-11-22 18:16:14,722 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-22 18:16:14,731 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 2.24ms
+2024-11-22 18:16:15,983 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-22 18:16:16,021 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-22 18:16:19,075 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-22 18:16:19,076 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-22 18:16:19,325 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-22 18:16:19,629 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-22 18:16:19,711 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:16:20,084 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-22 18:16:20,943 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:30:23,210 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.15
+2024-11-22 18:42:29,606 [application.py:prepare()] - Upload Request Received from 192.168.1.211
+Content-Type: multipart/form-data; boundary=---------------------------311200399011569753133686381030
+2024-11-22 18:42:29,616 [application.py:post()] - Processing Uploaded File: printer.cfg
+2024-11-22 18:42:29,622 [application.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 17.18ms
+2024-11-22 18:42:30,716 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-22 18:42:30,726 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 2.95ms
+2024-11-22 18:42:31,976 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-22 18:42:32,059 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-22 18:42:35,058 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-22 18:42:35,059 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-22 18:42:35,309 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-22 18:42:35,572 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-22 18:42:35,632 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:42:35,748 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:42:36,331 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-22 18:43:03,138 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:43:06,892 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:43:07,147 [job_state.py:_status_update()] - Job Started: Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:43:07,158 [application.py:log_request()] - 404 GET /server/files/metadata?filename=Hogwarts_-_part_1.v2%20-%20Copy.gcode (192.168.1.224) [_API_KEY_USER_] 4.09ms
+2024-11-22 18:43:07,173 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:43:07,431 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:43:07,971 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:43:08,196 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:45:22,285 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-11-22 18:45:22,301 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1732322692.728352, Usage: 1.74%, Memory: 41368 kB
+System Time: 1732322693.729482, Usage: 1.72%, Memory: 41368 kB
+System Time: 1732322694.730772, Usage: 2.69%, Memory: 41368 kB
+System Time: 1732322695.731174, Usage: 1.97%, Memory: 41368 kB
+System Time: 1732322696.735600, Usage: 4.36%, Memory: 41368 kB
+System Time: 1732322697.733463, Usage: 3.07%, Memory: 41368 kB
+System Time: 1732322698.733557, Usage: 3.06%, Memory: 41368 kB
+System Time: 1732322699.735233, Usage: 1.56%, Memory: 41368 kB
+System Time: 1732322700.735780, Usage: 1.51%, Memory: 41368 kB
+System Time: 1732322701.736673, Usage: 1.59%, Memory: 41368 kB
+System Time: 1732322702.737129, Usage: 1.53%, Memory: 41368 kB
+System Time: 1732322703.742900, Usage: 2.76%, Memory: 41368 kB
+System Time: 1732322704.743550, Usage: 5.1%, Memory: 41368 kB
+System Time: 1732322705.742399, Usage: 7.88%, Memory: 41368 kB
+System Time: 1732322706.743929, Usage: 1.44%, Memory: 41368 kB
+System Time: 1732322707.746009, Usage: 1.61%, Memory: 41368 kB
+System Time: 1732322708.748536, Usage: 2.83%, Memory: 41368 kB
+System Time: 1732322709.745725, Usage: 1.78%, Memory: 41368 kB
+System Time: 1732322710.747394, Usage: 2.16%, Memory: 41368 kB
+System Time: 1732322711.748574, Usage: 1.61%, Memory: 41368 kB
+System Time: 1732322712.750732, Usage: 1.54%, Memory: 41368 kB
+System Time: 1732322713.751651, Usage: 2.94%, Memory: 41368 kB
+System Time: 1732322714.752421, Usage: 4.99%, Memory: 41368 kB
+System Time: 1732322715.755163, Usage: 2.87%, Memory: 41368 kB
+System Time: 1732322716.755157, Usage: 2.51%, Memory: 41368 kB
+System Time: 1732322717.755894, Usage: 1.65%, Memory: 41368 kB
+System Time: 1732322718.756642, Usage: 3.04%, Memory: 41368 kB
+System Time: 1732322719.757663, Usage: 1.79%, Memory: 41368 kB
+System Time: 1732322720.758104, Usage: 1.81%, Memory: 41368 kB
+System Time: 1732322721.763196, Usage: 2.58%, Memory: 41368 kB
+CPU Temperature: 43.816
+2024-11-22 18:45:22,303 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
+2024-11-22 18:45:34,337 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-22 18:45:34,354 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 4.07ms
+2024-11-22 18:45:35,601 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-22 18:45:35,642 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-22 18:45:38,688 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-22 18:45:38,689 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-22 18:45:38,939 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-22 18:45:39,206 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-22 18:45:39,221 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:45:39,624 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:45:39,947 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-22 18:46:56,517 [application.py:prepare()] - Upload Request Received from 192.168.1.211
+Content-Type: multipart/form-data; boundary=---------------------------41883302548901456920105321
+2024-11-22 18:46:56,527 [application.py:post()] - Processing Uploaded File: printer.cfg
+2024-11-22 18:46:56,533 [application.py:log_request()] - 201 POST /server/files/upload (192.168.1.211) [_TRUSTED_USER_] 16.65ms
+2024-11-22 18:46:57,626 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-22 18:46:57,635 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 2.53ms
+2024-11-22 18:46:58,886 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-22 18:46:58,928 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-22 18:47:01,964 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-22 18:47:01,965 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-22 18:47:02,215 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-22 18:47:02,475 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-22 18:47:02,519 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:47:02,629 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:47:03,473 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-22 18:48:00,890 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:48:01,131 [job_state.py:_status_update()] - Job Started: Hogwarts_-_part_1.v2 - Copy.gcode
+2024-11-22 18:48:01,158 [application.py:log_request()] - 404 GET /server/files/metadata?filename=Hogwarts_-_part_1.v2%20-%20Copy.gcode (192.168.1.224) [_API_KEY_USER_] 11.00ms
+2024-11-22 18:48:01,203 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:48:01,278 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:48:01,431 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:48:01,472 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:50:37,225 [websockets.py:on_close()] - Websocket Closed: ID: 4088804088 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.58
+2024-11-22 18:50:37,762 [websockets.py:on_close()] - Websocket Closed: ID: 4088804304 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.32
+2024-11-22 18:50:37,786 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.09ms
+2024-11-22 18:50:37,786 [websockets.py:open()] - Websocket Opened: ID: 4088797000, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:50:37,807 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:50:38,067 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:51:41,815 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.09ms
+2024-11-22 18:51:41,815 [websockets.py:open()] - Websocket Opened: ID: 4088777672, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:51:41,850 [websockets.py:_handle_identify()] - Websocket 4088777672 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-22 18:51:42,612 [websockets.py:on_close()] - Websocket Closed: ID: 4088797000 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.82
+2024-11-22 18:51:42,635 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 1.54ms
+2024-11-22 18:51:42,635 [websockets.py:open()] - Websocket Opened: ID: 4059963720, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:51:42,723 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:51:42,858 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:51:43,037 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:51:44,026 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:56:51,035 [websockets.py:on_close()] - Websocket Closed: ID: 4070128176 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.93
+2024-11-22 18:56:52,225 [websockets.py:on_close()] - Websocket Closed: ID: 4070127048 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.86
+2024-11-22 18:56:52,286 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.15
+2024-11-22 18:56:52,288 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 2.70ms
+2024-11-22 18:56:52,288 [websockets.py:open()] - Websocket Opened: ID: 4088767128, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:56:52,406 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:56:52,935 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 18:56:53,139 [websockets.py:on_close()] - Websocket Closed: ID: 4088767128 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.85
+2024-11-22 18:56:53,190 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 1.69ms
+2024-11-22 18:56:53,190 [websockets.py:open()] - Websocket Opened: ID: 4088768640, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:56:53,302 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:56:57,155 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 19:44:32,000 [websockets.py:write_to_socket()] - Websocket closed while writing: 4088777672
+2024-11-22 19:44:36,818 [websockets.py:on_close()] - Websocket Closed: ID: 4088777672 Close Code: None, Close Reason: None, Pong Time Elapsed: 45.00
+2024-11-22 19:44:37,639 [websockets.py:on_close()] - Websocket Closed: ID: 4059963720 Close Code: None, Close Reason: None, Pong Time Elapsed: 45.00
+2024-11-22 19:44:37,640 [websockets.py:write_to_socket()] - Websocket closed while writing: 4059963720
+2024-11-22 19:46:05,273 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.26
+2024-11-22 19:46:05,275 [application.py:log_request()] - 101 GET /websocket (192.168.1.26) [_TRUSTED_USER_] 2.72ms
+2024-11-22 19:46:05,275 [websockets.py:open()] - Websocket Opened: ID: 4089615288, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 19:46:05,306 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 19:46:05,526 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 19:46:06,360 [application.py:log_request()] - 101 GET /websocket (192.168.1.26) [_TRUSTED_USER_] 1.47ms
+2024-11-22 19:46:06,360 [websockets.py:open()] - Websocket Opened: ID: 4059934672, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 19:46:06,422 [websockets.py:_handle_identify()] - Websocket 4059934672 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-22 19:46:06,703 [websockets.py:on_close()] - Websocket Closed: ID: 4089615288 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.43
+2024-11-22 19:46:06,765 [application.py:log_request()] - 101 GET /websocket (192.168.1.26) [_TRUSTED_USER_] 1.48ms
+2024-11-22 19:46:06,765 [websockets.py:open()] - Websocket Opened: ID: 4089616560, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 19:46:06,858 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 19:46:07,077 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 19:46:09,402 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <Hogwarts_-_part_1.v2 - Copy.gcode>
+2024-11-22 19:55:23,227 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2024-11-22 19:58:56,960 [websockets.py:write_to_socket()] - Websocket closed while writing: 4089616560
+2024-11-22 19:59:01,364 [websockets.py:on_close()] - Websocket Closed: ID: 4059934672 Close Code: None, Close Reason: None, Pong Time Elapsed: 45.00
+2024-11-22 19:59:01,364 [websockets.py:write_to_socket()] - Websocket closed while writing: 4059934672
+2024-11-22 19:59:01,768 [websockets.py:on_close()] - Websocket Closed: ID: 4089616560 Close Code: None, Close Reason: None, Pong Time Elapsed: 44.99
+2024-11-22 20:00:23,228 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.15

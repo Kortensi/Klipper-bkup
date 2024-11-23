@@ -3389,3 +3389,104 @@ Traceback (most recent call last):
   File "/home/pi/moonraker/moonraker/components/shell_command.py", line 277, in run_with_response
     raise ShellCommandError(
 moonraker.components.shell_command.ShellCommandError: Error running shell command: 'ip -json -det address'
+2024-11-22 16:58:05,395 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.15
+2024-11-22 16:58:05,397 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 3.62ms
+2024-11-22 16:58:05,398 [websockets.py:open()] - Websocket Opened: ID: 4073258480, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 16:58:05,438 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 17:25:23,089 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2024-11-22 18:00:23,093 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.15
+2024-11-22 18:00:49,381 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2024-11-22 18:50:37,341 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.12ms
+2024-11-22 18:50:37,342 [websockets.py:open()] - Websocket Opened: ID: 4063015312, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:50:37,346 [websockets.py:_handle_identify()] - Websocket 4063015312 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-22 18:50:37,781 [websockets.py:on_close()] - Websocket Closed: ID: 4073608144 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.32
+2024-11-22 18:50:37,999 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.53ms
+2024-11-22 18:50:37,999 [websockets.py:open()] - Websocket Opened: ID: 4073610448, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:50:38,048 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:50:52,796 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Infinity Flip - x3.gcode
+2024-11-22 18:50:52,985 [job_state.py:_status_update()] - Job Started: Infinity Flip - x3.gcode
+2024-11-22 18:51:41,697 [websockets.py:on_close()] - Websocket Closed: ID: 4063015312 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.35
+2024-11-22 18:51:42,611 [websockets.py:on_close()] - Websocket Closed: ID: 4073610448 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.61
+2024-11-22 18:51:42,655 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.10ms
+2024-11-22 18:51:42,655 [websockets.py:open()] - Websocket Opened: ID: 4083902976, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:51:42,685 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:56:51,269 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.15
+2024-11-22 18:56:51,271 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 2.76ms
+2024-11-22 18:56:51,271 [websockets.py:open()] - Websocket Opened: ID: 4073258960, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:56:51,418 [websockets.py:_handle_identify()] - Websocket 4073258960 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-22 18:56:52,241 [websockets.py:on_close()] - Websocket Closed: ID: 4073258480 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.84
+2024-11-22 18:56:52,321 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 1.39ms
+2024-11-22 18:56:52,321 [websockets.py:open()] - Websocket Opened: ID: 4072959640, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:56:52,415 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 18:56:52,822 [websockets.py:on_close()] - Websocket Closed: ID: 4073258960 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.55
+2024-11-22 18:56:52,954 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 1.80ms
+2024-11-22 18:56:52,955 [websockets.py:open()] - Websocket Opened: ID: 4073255168, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:56:52,961 [websockets.py:_handle_identify()] - Websocket 4073255168 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-22 18:56:53,156 [websockets.py:on_close()] - Websocket Closed: ID: 4072959640 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.84
+2024-11-22 18:56:53,237 [application.py:log_request()] - 101 GET /websocket (192.168.1.15) [_TRUSTED_USER_] 2.05ms
+2024-11-22 18:56:53,238 [websockets.py:open()] - Websocket Opened: ID: 4072959760, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 18:56:53,311 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 19:44:37,658 [websockets.py:on_close()] - Websocket Closed: ID: 4083902976 Close Code: None, Close Reason: None, Pong Time Elapsed: 45.00
+2024-11-22 19:44:37,658 [websockets.py:write_to_socket()] - Websocket closed while writing: 4083902976
+2024-11-22 19:46:06,319 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.26
+2024-11-22 19:46:06,320 [application.py:log_request()] - 101 GET /websocket (192.168.1.26) [_TRUSTED_USER_] 2.60ms
+2024-11-22 19:46:06,321 [websockets.py:open()] - Websocket Opened: ID: 4073656200, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 19:46:06,626 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 19:46:06,712 [websockets.py:on_close()] - Websocket Closed: ID: 4073656200 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.39
+2024-11-22 19:46:06,799 [application.py:log_request()] - 101 GET /websocket (192.168.1.26) [_TRUSTED_USER_] 1.38ms
+2024-11-22 19:46:06,800 [websockets.py:open()] - Websocket Opened: ID: 4063046264, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-22 19:46:06,860 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-22 19:55:23,118 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2024-11-22 19:59:01,802 [websockets.py:on_close()] - Websocket Closed: ID: 4063046264 Close Code: None, Close Reason: None, Pong Time Elapsed: 45.00
+2024-11-22 19:59:01,802 [websockets.py:write_to_socket()] - Websocket closed while writing: 4063046264
+2024-11-22 20:00:23,119 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.15
+2024-11-22 20:01:20,567 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-11-22 20:01:20,574 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1732327250.730236, Usage: 1.35%, Memory: 40336 kB
+System Time: 1732327251.731355, Usage: 1.58%, Memory: 40336 kB
+System Time: 1732327252.731058, Usage: 1.4%, Memory: 40336 kB
+System Time: 1732327253.734097, Usage: 3.09%, Memory: 40336 kB
+System Time: 1732327254.733460, Usage: 2.16%, Memory: 40336 kB
+System Time: 1732327255.734148, Usage: 1.65%, Memory: 40336 kB
+System Time: 1732327256.735552, Usage: 2.44%, Memory: 40336 kB
+System Time: 1732327257.736204, Usage: 4.13%, Memory: 40336 kB
+System Time: 1732327258.737432, Usage: 1.36%, Memory: 40336 kB
+System Time: 1732327259.738176, Usage: 1.52%, Memory: 40336 kB
+System Time: 1732327260.738291, Usage: 1.39%, Memory: 40336 kB
+System Time: 1732327261.739058, Usage: 1.31%, Memory: 40336 kB
+System Time: 1732327262.740335, Usage: 1.36%, Memory: 40336 kB
+System Time: 1732327263.741930, Usage: 3.43%, Memory: 40336 kB
+System Time: 1732327264.743619, Usage: 1.53%, Memory: 40336 kB
+System Time: 1732327265.745173, Usage: 1.5%, Memory: 40336 kB
+System Time: 1732327266.743846, Usage: 2.4%, Memory: 40336 kB
+System Time: 1732327267.744767, Usage: 4.14%, Memory: 40336 kB
+System Time: 1732327268.747099, Usage: 1.63%, Memory: 40336 kB
+System Time: 1732327269.749640, Usage: 1.69%, Memory: 40336 kB
+System Time: 1732327270.751265, Usage: 1.4%, Memory: 40336 kB
+System Time: 1732327271.752847, Usage: 1.33%, Memory: 40336 kB
+System Time: 1732327272.754025, Usage: 1.35%, Memory: 40336 kB
+System Time: 1732327273.755178, Usage: 3.01%, Memory: 40336 kB
+System Time: 1732327274.756027, Usage: 1.54%, Memory: 40336 kB
+System Time: 1732327275.759470, Usage: 2.79%, Memory: 40336 kB
+System Time: 1732327276.758657, Usage: 4.55%, Memory: 40336 kB
+System Time: 1732327277.759066, Usage: 1.46%, Memory: 40336 kB
+System Time: 1732327278.760209, Usage: 0.94%, Memory: 40336 kB
+System Time: 1732327279.761242, Usage: 0.63%, Memory: 40336 kB
+CPU Temperature: 48.686
+2024-11-22 20:01:20,575 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
+2024-11-22 20:01:23,163 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:25,180 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:27,194 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:29,194 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:33,185 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:35,204 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:37,219 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:39,234 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:41,249 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:43,265 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:45,281 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:47,298 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:50,517 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:52,532 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-22 20:01:54,535 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
