@@ -6,4 +6,5 @@ secrets.conf
 *.bkp
 *.csv
 *.zip
+*.theme
 *.gcode
