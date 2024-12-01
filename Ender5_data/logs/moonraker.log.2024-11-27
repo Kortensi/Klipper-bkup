@@ -1,0 +1,252 @@
+-------------------- Log Start | Wed Nov 27 06:24:09 2024 --------------------
+platform: Linux-6.1.21-v8+-aarch64-with-glibc2.31
+data_path: /home/pi/Ender5_data
+is_default_data_path: False
+config_file: /home/pi/Ender5_data/config/moonraker.conf
+backup_config: /home/pi/Ender5_data/config/.moonraker.conf.bkp
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: 7b1425501a69432ca838d218c97a15b3
+unix_socket_path: /home/pi/Ender5_data/comms/moonraker.sock
+software_version: v0.9.3-3-gccfe32f
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/pi/Ender5_data/logs/moonraker.log
+python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+launch_args: /home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/moonraker.py -d /home/pi/Ender5_data
+msgspec_enabled: False
+uvloop_enabled: False
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7126
+klippy_uds_address = /home/pi/Ender5_data/comms/klippy.sock
+
+[file_manager]
+enable_object_processing = True
+
+[authorization]
+trusted_clients = 
+	127.0.0.1
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+	192.168.1.224
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+	*://Ender5
+	*://Ender5.local
+	*://192.168.1.224
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+refresh_interval = 168
+
+[update_manager mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager KlipperScreen]
+type = git_repo
+path = ~/KlipperScreen
+origin = https://github.com/jordanruthe/KlipperScreen.git
+env = ~/.KlipperScreen-env/bin/python
+requirements = scripts/KlipperScreen-requirements.txt
+install_script = scripts/KlipperScreen-install.sh
+managed_services = KlipperScreen
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+install_script = tools/install.sh
+
+[update_manager client moonraker-telegram-bot]
+type = git_repo
+path = ~/moonraker-telegram-bot
+origin = https://github.com/nlef/moonraker-telegram-bot.git
+env = ~/moonraker-telegram-bot-env/bin/python
+requirements = scripts/requirements.txt
+install_script = scripts/install.sh
+
+[update_manager klipper-backup]
+type = git_repo
+path = ~/klipper-backup
+origin = https://github.com/Staubgeborener/klipper-backup.git
+managed_services = moonraker
+primary_branch = main
+
+[power light_strip]
+type = gpio
+pin = gpiochip0/gpio16
+initial_state = off
+
+#################################################################
+All Configuration Files:
+/home/pi/Ender5_data/config/moonraker.conf
+#################################################################
+Loading Sqlite database provider. Sqlite Version: 3.34.1
+Unsafe Shutdown Count: 63
+
+System Info:
+
+***python***
+  version: (3, 9, 2, 'final', 0)
+  version_string: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 32bit
+  processor: aarch64
+  cpu_desc: 
+  serial_number: 100000004453ee49
+  hardware_desc: BCM2835
+  model: Raspberry Pi 4 Model B Rev 1.4
+  total_memory: 3705528
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 6f
+  manufacturer: Unknown
+  oem_id: 0303
+  product_name: CBADS
+  product_revision: 1.0
+  serial_number: aa0005c6
+  manufacturer_date: 10/2022
+  capacity: 29.1 GiB
+  total_bytes: 31275876352
+
+***distribution***
+  name: Raspbian GNU/Linux 11 (bullseye)
+  id: raspbian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: debian
+  codename: bullseye
+  release_info: {}
+  kernel_version: 6.1.21-v8+
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+Found libcamera Python module, version: v0.0.5+83-bde9b04f
+
+Systemd unit moonraker-Ender5.service:
+unit_name: moonraker-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'sysinit.target', 'network-online.target', 'system.slice']
+**After=['basic.target', '-.mount', 'sysinit.target', 'network-online.target', 'system.slice', 'systemd-journald.socket']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/moonraker.env
+**ExecStart=/home/pi/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/pi/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-Ender5.service
+**Description=API Server for Klipper SV1 Ender5
+**User=pi
+
+Systemd unit klipper-Ender5.service:
+unit_name: klipper-Ender5.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'sysinit.target']
+**After=['basic.target', '-.mount', 'sysinit.target', 'network-online.target', 'system.slice', 'systemd-journald.socket']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/pi/Ender5_data/systemd/klipper.env
+**ExecStart=/home/pi/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/pi/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender5.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=pi
+Git Repo moonraker: No warnings detected
+Git Repo klipper: Warnings detected:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+Git Repo KlipperScreen: No warnings detected
+Git Repo crowsnest: No warnings detected
+Git Repo moonraker-telegram-bot: No warnings detected
+Git Repo klipper-backup: No warnings detected
+Klipper Version: v0.12.0-379-gf2e69a370-dirty
+2024-11-27 00:24:09,153 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.36
+2024-11-27 00:39:09,156 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2024-11-27 01:02:08,331 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.36
+2024-11-27 01:02:08,335 [application.py:log_request()] - 101 GET /websocket (192.168.1.36) [_TRUSTED_USER_] 5.12ms
+2024-11-27 01:02:08,336 [websockets.py:open()] - Websocket Opened: ID: 4066805552, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2024-11-27 01:02:08,352 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-27 01:02:23,094 [application.py:log_request()] - 101 GET /websocket (192.168.1.36) [_TRUSTED_USER_] 4.03ms
+2024-11-27 01:02:23,095 [websockets.py:open()] - Websocket Opened: ID: 4086118120, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2024-11-27 01:02:23,136 [websockets.py:_handle_identify()] - Websocket 4086118120 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-27 01:02:23,814 [websockets.py:on_close()] - Websocket Closed: ID: 4066805552 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.45
+2024-11-27 01:02:23,901 [application.py:log_request()] - 101 GET /websocket (192.168.1.36) [_TRUSTED_USER_] 85.09ms
+2024-11-27 01:02:23,901 [websockets.py:open()] - Websocket Opened: ID: 4085705960, Proxied: False, User Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36, Host Name: 192.168.1.224
+2024-11-27 01:02:23,996 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-27 01:02:32,986 [websockets.py:on_close()] - Websocket Closed: ID: 4086118120 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 9.89
+2024-11-27 01:02:32,988 [websockets.py:on_close()] - Websocket Closed: ID: 4085705960 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 9.17
+2024-11-27 02:04:09,175 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.36
+2024-11-27 03:01:14,000 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2024-11-27 03:04:04,186 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2024-11-27 03:04:14,195 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2024-11-27 03:04:24,205 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.1.224
+2024-11-27 15:59:46,173 [websockets.py:on_close()] - Websocket Closed: ID: 4067408696 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.38
+2024-11-27 15:59:46,218 [websockets.py:on_close()] - Websocket Closed: ID: 4056845064 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.14
+2024-11-27 15:59:46,225 [websockets.py:on_close()] - Websocket Closed: ID: 4056740360 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.72
+2024-11-27 15:59:46,228 [websockets.py:on_close()] - Websocket Closed: ID: 4067409848 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.05
+2024-11-27 16:00:07,205 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2024-11-27 16:00:07,207 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 3.65ms
+2024-11-27 16:00:07,207 [websockets.py:open()] - Websocket Opened: ID: 4066845984, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-27 16:00:07,304 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-27 17:02:34,838 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.27ms
+2024-11-27 17:02:34,839 [websockets.py:open()] - Websocket Opened: ID: 4066803848, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-27 17:02:34,853 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-27 17:03:02,194 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 2.84ms
+2024-11-27 17:03:02,195 [websockets.py:open()] - Websocket Opened: ID: 4066805432, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-27 17:03:02,198 [websockets.py:_handle_identify()] - Websocket 4066805432 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-27 17:03:02,628 [websockets.py:on_close()] - Websocket Closed: ID: 4066803848 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.79
+2024-11-27 17:03:02,877 [application.py:log_request()] - 101 GET /websocket (192.168.1.211) [_TRUSTED_USER_] 247.66ms
+2024-11-27 17:03:02,878 [websockets.py:open()] - Websocket Opened: ID: 4056741824, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-27 17:03:02,906 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-27 17:03:15,010 [klippy_apis.py:start_print()] - Requesting Job Start, filename = flexagon2-newcode.gcode
+2024-11-27 17:03:15,221 [job_state.py:_status_update()] - Job Started: flexagon2-newcode.gcode
+2024-11-27 18:04:09,379 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
+2024-11-27 21:38:11,561 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.211
+2024-11-27 21:39:12,784 [klippy_apis.py:start_print()] - Requesting Job Start, filename = snakev9-zhop.gcode
+2024-11-27 21:39:12,992 [job_state.py:_status_update()] - Job Started: snakev9-zhop.gcode
+2024-11-27 22:44:09,441 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.211
