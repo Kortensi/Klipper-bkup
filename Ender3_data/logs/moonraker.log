@@ -2396,3 +2396,18 @@ Properties:
 2024-11-30 22:00:46,359 [websockets.py:open()] - Websocket Opened: ID: 4084673888, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
 2024-11-30 22:00:46,369 [file_manager.py:get_file_list()] - Updating File List <config>...
 2024-11-30 22:02:08,439 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2024-11-30 22:03:08,441 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.01 seconds
+2024-11-30 22:04:08,442 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 180.01 seconds
+2024-11-30 22:05:08,443 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 240.01 seconds
+2024-11-30 22:06:08,444 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 300.01 seconds
+2024-11-30 22:07:08,446 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 360.01 seconds
+2024-11-30 22:08:08,447 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 420.01 seconds
+2024-11-30 22:14:50,101 [websockets.py:on_close()] - Websocket Closed: ID: 4084673888 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 3.74
+2024-11-30 22:14:50,102 [websockets.py:on_close()] - Websocket Closed: ID: 4084705768 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 3.83
+2024-11-30 22:15:01,553 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 5.06ms
+2024-11-30 22:15:01,554 [websockets.py:open()] - Websocket Opened: ID: 4085230776, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-30 22:15:01,565 [websockets.py:_handle_identify()] - Websocket 4085230776 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-30 22:15:02,229 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 220.18ms
+2024-11-30 22:15:02,229 [websockets.py:open()] - Websocket Opened: ID: 4093874624, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-30 22:15:02,283 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-30 22:35:41,234 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds

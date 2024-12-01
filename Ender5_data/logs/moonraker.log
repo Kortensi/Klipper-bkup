@@ -2498,3 +2498,7 @@ Properties:
 2024-11-30 22:00:46,340 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 4.46ms
 2024-11-30 22:00:46,341 [websockets.py:open()] - Websocket Opened: ID: 4087914088, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
 2024-11-30 22:00:46,350 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-30 22:14:50,100 [websockets.py:on_close()] - Websocket Closed: ID: 4087914088 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 3.76
+2024-11-30 22:15:01,992 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 2.21ms
+2024-11-30 22:15:01,993 [websockets.py:open()] - Websocket Opened: ID: 4069443712, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-30 22:15:02,003 [file_manager.py:get_file_list()] - Updating File List <config>...
