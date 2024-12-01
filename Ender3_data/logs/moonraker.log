@@ -1637,3 +1637,35 @@ moonraker.components.shell_command.ShellCommandError: Error running shell comman
 2024-11-30 20:08:17,481 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 360.26 seconds
 2024-11-30 20:09:17,483 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 420.26 seconds
 2024-11-30 20:28:14,943 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2024-11-30 20:29:14,944 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.00 seconds
+2024-11-30 20:30:14,945 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 180.00 seconds
+2024-11-30 20:31:14,947 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 240.01 seconds
+2024-11-30 20:32:14,948 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 300.01 seconds
+2024-11-30 20:33:14,950 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 360.01 seconds
+2024-11-30 20:34:14,953 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 420.01 seconds
+2024-11-30 20:35:14,955 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 480.01 seconds
+2024-11-30 20:36:14,957 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 540.02 seconds
+2024-11-30 20:37:14,959 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 600.02 seconds
+2024-11-30 20:38:14,961 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 660.02 seconds
+2024-11-30 20:39:14,962 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 720.02 seconds
+2024-11-30 20:40:41,412 [application.py:prepare()] - Upload Request Received from 192.168.1.91
+Content-Type: multipart/form-data; boundary=---------------------------28974810545362809793316444267
+2024-11-30 20:40:41,736 [application.py:post()] - Processing Uploaded File: printer.cfg
+2024-11-30 20:40:41,755 [application.py:log_request()] - 201 POST /server/files/upload (192.168.1.91) [_TRUSTED_USER_] 345.39ms
+2024-11-30 20:40:42,796 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-30 20:40:42,818 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 3.41ms
+2024-11-30 20:40:44,059 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-30 20:40:44,106 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender3.service
+2024-11-30 20:40:44,826 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-30 20:40:46,675 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-30 20:40:46,677 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-30 20:40:46,848 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: machine.device_power.devices, Code: -32601, Message: Method not found
+2024-11-30 20:40:46,926 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-30 20:40:47,190 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-30 20:40:47,204 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-30 20:40:48,195 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-30 20:40:49,747 [websockets.py:on_close()] - Websocket Closed: ID: 4082058528 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.16
+2024-11-30 20:40:50,714 [websockets.py:on_close()] - Websocket Closed: ID: 4070863704 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.41
+2024-11-30 20:40:50,819 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 3.01ms
+2024-11-30 20:40:50,820 [websockets.py:open()] - Websocket Opened: ID: 4081996824, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-30 20:40:50,830 [file_manager.py:get_file_list()] - Updating File List <config>...

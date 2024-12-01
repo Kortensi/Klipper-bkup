@@ -1905,3 +1905,29 @@ Traceback (most recent call last):
   File "/home/pi/moonraker/moonraker/components/shell_command.py", line 277, in run_with_response
     raise ShellCommandError(
 moonraker.components.shell_command.ShellCommandError: Error running shell command: 'ip -json -det address'
+2024-11-30 20:40:49,780 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 2.84ms
+2024-11-30 20:40:49,781 [websockets.py:open()] - Websocket Opened: ID: 4055873472, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-30 20:40:49,788 [websockets.py:_handle_identify()] - Websocket 4055873472 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-11-30 20:40:50,779 [websockets.py:on_close()] - Websocket Closed: ID: 4085324120 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.77
+2024-11-30 20:40:50,797 [application.py:log_request()] - 101 GET /websocket (192.168.1.91) [_TRUSTED_USER_] 16.61ms
+2024-11-30 20:40:50,798 [websockets.py:open()] - Websocket Opened: ID: 4065917080, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0, Host Name: 192.168.1.224
+2024-11-30 20:40:50,852 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-30 20:41:33,631 [application.py:prepare()] - Upload Request Received from 192.168.1.91
+Content-Type: multipart/form-data; boundary=---------------------------302708617130898887042757640821
+2024-11-30 20:41:33,677 [application.py:post()] - Processing Uploaded File: printer.cfg
+2024-11-30 20:41:33,682 [application.py:log_request()] - 201 POST /server/files/upload (192.168.1.91) [_TRUSTED_USER_] 52.11ms
+2024-11-30 20:41:34,750 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-11-30 20:41:34,767 [application.py:log_request()] - 503 GET /printer/objects/list (192.168.1.224) [_API_KEY_USER_] 2.25ms
+2024-11-30 20:41:36,009 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-11-30 20:41:36,047 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender5.service
+2024-11-30 20:41:39,230 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-11-30 20:41:39,232 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-11-30 20:41:39,482 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-11-30 20:41:39,741 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-11-30 20:41:39,774 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-11-30 20:41:40,490 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor RPI_Sensor', 'extruder']
+2024-11-30 20:42:49,636 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2024-11-30 20:43:49,638 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.00 seconds
+2024-11-30 20:44:49,639 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 180.00 seconds
+2024-11-30 20:45:49,640 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 240.01 seconds
+2024-11-30 20:46:49,642 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 300.01 seconds
